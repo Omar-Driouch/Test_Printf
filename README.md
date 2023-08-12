@@ -1,1 +1,1 @@
-this is the test of project printf working in cloaborate iwth Alamy
+This is a README file in Alamy's branch
