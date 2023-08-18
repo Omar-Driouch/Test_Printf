@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 				{
 					if (spec[j] == 'c')
 					{
-						_putchar(format[i + 1]);
+						_putchar((int)va_arg(args,int));
 						i += 2;
 						break;
 					}
