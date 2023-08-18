@@ -84,12 +84,11 @@ int printf_i(va_list ls)
 
 int printf_char(va_list ls)
 {
-    int counter = 0;
-    char perc = va_arg(ls, int);
-    printf("%d",perc);
-    if (perc == 0)
-        return counter;
-    counter = _putchar(perc);
+	char ch = va_arg(ls, int);
+	char null_char = ' ';
 
-    return counter;
+	if (ls == NULL)
+		return (_putchar(null_char));
+
+	return (_putchar(ch));
 }

@@ -23,10 +23,8 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == spec[j])
 				{
-					 printf("%c",spec[j]);
 					total_written += get_right_func(format + i + 1)(args);
 					i += 2;
-					 
 				}
 			}
 		}
