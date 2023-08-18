@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	/* This number '4' will be changed when we add more specifiers */
 	char Specifiers[4] = {'c', 's', 'd', 'i'};
-	int i, j;
+	int i, j, len = 0;
 	va_list args;
 
 	/* Return -1 if format is NULL */
@@ -26,19 +26,16 @@ int _printf(const char *format, ...)
 		for (j = 0; format[i] == '%' && j < 4; j++)
 		{
 			if (format[i + 1] == Specifiers[j])
-			{
-				i++;
-				get_formatting_func(format[i])(args);
-			}
-			else if (format[i] == '%')
-			{
-				i++;
-				_putchar(format[i]);
-			}
+				len += get_formatting_func(format[++i])(args);
+			else if (format[i + 1] == '%')
+				len += _putchar(format[++i]);
 		}
 
 		_putchar(format[i]);
+		len++;
 	}
 
 	va_end(args);
+
+	return (len);
 }
