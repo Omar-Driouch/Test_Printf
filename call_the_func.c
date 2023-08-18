@@ -15,6 +15,7 @@ int (*get_right_func(const char *s))(va_list)
     {'d', printf_i},
     {'c', printf_char},
     {'%', printf_char},
+    {'b', printf_binary},
     {0, NULL}
 };
     int i = 0;

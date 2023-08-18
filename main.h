@@ -26,7 +26,8 @@ int _putchar(char c);
 int printf_s(va_list);
 int printf_i(va_list);
 int printf_char(va_list ls);
-
+int printf_binary(va_list ls);
+int print_rev(char *s);
 int (*get_right_func(const char *s))(va_list);
 
 #endif /* MAIN_H */

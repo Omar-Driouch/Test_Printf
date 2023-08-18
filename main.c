@@ -9,10 +9,11 @@
  */
 int main(void)
 {
-     
- 
-       printf("Percent:[%%]\n");
-      _printf("Percent:[%%]\n");
-  
-    return (0);
+	int len;
+	int len2;
+	 
+	 _printf("%b\n", 98);
+	
+	 
+	return (0);
 }

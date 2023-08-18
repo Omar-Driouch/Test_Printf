@@ -82,6 +82,13 @@ int printf_i(va_list ls)
     return counter;
 }
 
+
+/**
+ * printf_char - Custom printf function to print a character.
+ * @ls: va_list containing the argument to be printed.
+ * Return: The number of characters printed.
+ */
+
 int printf_char(va_list ls)
 {
 	char ch = va_arg(ls, int);
@@ -92,3 +99,4 @@ int printf_char(va_list ls)
 
 	return (_putchar(ch));
 }
+
