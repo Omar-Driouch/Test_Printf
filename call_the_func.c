@@ -13,6 +13,8 @@ int (*get_right_func(const char *s))(va_list)
     {'s', printf_s},
     {'i', printf_i},
     {'d', printf_i},
+    {'c', printf_char},
+    {'%', printf_char},
     {0, NULL}
 };
     int i = 0;

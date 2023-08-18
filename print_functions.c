@@ -14,7 +14,7 @@ int _putchar(char c)
 
 /**
  * printf_string - takes an array of char and print it using the buffer 1024 size
- * @buffer: a string;
+ * @ls: va_list containing the argument to be printed.
  * Return: the lenght of the printfed string
  */
 
@@ -35,9 +35,19 @@ int printf_s(va_list ls)
     return counter;
 }
 
+/**
+ * printf_i - Custom printf function to print an integer.
+ * @ls: va_list containing the argument to be printed.
+ *
+ * This function is used as part of a custom printf implementation to print an integer
+ * argument. It handles both positive and negative integers, calculates the number of
+ * digits in the integer, and prints each digit separately.
+ *
+ * Return: The number of characters printed.
+ */
 int printf_i(va_list ls)
 {
-    int counter = 0, i, numDigits = 0, divisor = 1, temp ;
+    int counter = 0, i, numDigits = 0, divisor = 1, temp;
     int num = (int)va_arg(ls, int);
 
     if (num == 0)
@@ -50,22 +60,15 @@ int printf_i(va_list ls)
         _putchar('-');
         num = -num;
     }
-
-     
     temp = num;
-
     while (temp > 0)
     {
         temp /= 10;
         numDigits++;
     }
 
-    
-
     for (i = 1; i < numDigits; i++)
-    {
         divisor *= 10;
-    }
 
     while (divisor > 0)
     {
@@ -75,6 +78,18 @@ int printf_i(va_list ls)
         divisor /= 10;
         counter++;
     }
+
+    return counter;
+}
+
+int printf_char(va_list ls)
+{
+    int counter = 0;
+    char perc = va_arg(ls, int);
+    printf("%d",perc);
+    if (perc == 0)
+        return counter;
+    counter = _putchar(perc);
 
     return counter;
 }

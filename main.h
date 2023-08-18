@@ -25,6 +25,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int printf_s(va_list);
 int printf_i(va_list);
+int printf_char(va_list ls);
 
 int (*get_right_func(const char *s))(va_list);
 
