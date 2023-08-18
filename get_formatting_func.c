@@ -7,7 +7,7 @@
  *
  * Return: The the corresponding function for the sepicifer @c
  */
-int (*get_formatting_func(char *c))(va_list)
+int (*get_formatting_func(char c))(va_list)
 {
 	/* if format[i] == '%' then check the next character */
 	formatter_t Formatter[4] = {
@@ -23,4 +23,6 @@ int (*get_formatting_func(char *c))(va_list)
 		if (Formatter[i].spec == c)
 			return (Formatter[i].func);
 	}
+
+	return (NULL);
 }

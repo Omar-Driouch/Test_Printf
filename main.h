@@ -4,6 +4,7 @@
 /* Libraries */
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct formatter - A struct of specifiers with their
@@ -20,7 +21,7 @@ typedef struct formatter
 /* Prototypes */
 int _printf(const char *format, ...);
 int _putchar(char c);
-int (*get_formatting_func(char *c))(va_list);
+int (*get_formatting_func(char c))(va_list);
 
 /* Print functions for each Specifier */
 int print_c(va_list);

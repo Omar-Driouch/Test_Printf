@@ -20,22 +20,25 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	for (i = 0; format[i] != '0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		/* if format[i] == '%' then check the next character */
 		for (j = 0; format[i] == '%' && j < 4; j++)
 		{
 			if (format[i + 1] == Specifiers[j])
+			{
 				len += get_formatting_func(format[++i])(args);
+				i++;
+			}
 			else if (format[i + 1] == '%')
+			{
 				len += _putchar(format[++i]);
+				i++;
+			}
 		}
-
-		_putchar(format[i]);
-		len++;
+		len += _putchar(format[i]);
 	}
 
 	va_end(args);
-
 	return (len);
 }
