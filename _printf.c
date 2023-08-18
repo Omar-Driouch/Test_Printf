@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			
+
 			for (j = 0; j < 5; j++)
 			{
 				if (format[i + 1] == spec[j])
@@ -26,6 +26,12 @@ int _printf(const char *format, ...)
 					total_written += get_right_func(format + i + 1)(args);
 					i += 2;
 				}
+				else if (format[i + 1] == '%')
+				{
+					total_written += _putchar(format[++i]);
+					i++;
+				}
+				
 			}
 		}
 		else
