@@ -9,14 +9,18 @@
  */
 int (*get_formatting_func(char *c))(va_list)
 {
-	formatter_t Formatter = {
+	/* if format[i] == '%' then check the next character */
+	formatter_t Formatter[4] = {
 		{'c', print_c},
 		{'s', print_s},
 		{'d', print_d},
-		{'i', print_d},
-		{'b', print_b},
-		{NULL, NULL}
+		{'i', print_d}
 	};
+	int i;
 
-	/* Rest of code that returns the correct function will be soon */
+	for (i = 0; i < 4; i++)
+	{
+		if (Formatter[i].spec == c)
+			return (Formatter[i].func);
+	}
 }
