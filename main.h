@@ -19,7 +19,6 @@ typedef struct formatter
     int (*func)(va_list);
 } formatter_t;
 
-
 /* Prototypes */
 int _printf(const char *format, ...);
 int _putchar(char c);
