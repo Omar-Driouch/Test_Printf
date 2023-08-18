@@ -11,3 +11,27 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+
+int print_c(va_list)
+{
+
+}
+
+
+int print_s(va_list)
+{
+
+}
+
+
+int print_d(va_list)
+{
+
+}
+
+
+int print_b(va_list)
+{
+
+}
