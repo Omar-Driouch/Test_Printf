@@ -4,11 +4,11 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	char spec[4] = {'i', 'd', 'c', 's'};
-	va_start(args, format);
-
 	int total_written = 0;
 	int i = 0;
 	int j = 0;
+
+	va_start(args, format);
 
 	if (format[0] == '\0')
 	{

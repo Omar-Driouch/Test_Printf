@@ -37,7 +37,7 @@ int printf_s(va_list ls)
 
 int printf_i(va_list ls)
 {
-    int counter = 0;
+    int counter = 0, i, numDigits = 0, divisor = 1, temp ;
     int num = (int)va_arg(ls, int);
 
     if (num == 0)
@@ -51,8 +51,8 @@ int printf_i(va_list ls)
         num = -num;
     }
 
-    int numDigits = 0;
-    int temp = num;
+     
+    temp = num;
 
     while (temp > 0)
     {
@@ -60,9 +60,9 @@ int printf_i(va_list ls)
         numDigits++;
     }
 
-    int divisor = 1;
+    
 
-    for (int i = 1; i < numDigits; i++)
+    for (i = 1; i < numDigits; i++)
     {
         divisor *= 10;
     }
