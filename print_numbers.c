@@ -14,9 +14,13 @@
 int printf_binary(va_list ls)
 {
 	int num = va_arg(ls, int);
-	int i = 0;
-	char bin[sizeof(int) * 8 + 1];
+	int i = 0, result = 0;
+	char *bin = (char *)malloc((count_binary_digits(num) + 1) * sizeof(char));
 
+	if (bin == NULL)
+	{
+		return (-1); 
+	}
 	while (num > 0)
 	{
 		bin[i] = num % 2 + '0';
@@ -25,5 +29,34 @@ int printf_binary(va_list ls)
 	}
 	bin[i] = '\0';
 
-	return print_rev(bin);
+	result = print_rev(bin);
+
+	free(bin);
+
+	return result;
+}
+
+/**
+ * count_binary_digits -  count how many digits in the binary digit
+ * @num: the number
+ * 
+ * Return: the counted digits
+*/
+
+int count_binary_digits(int num)
+{
+	int count = 0;
+
+	if (num == 0)
+	{
+		return (1);
+	}
+
+	while (num > 0)
+	{
+		num = num / 2;
+		count++;
+	}
+
+	return (count);
 }
