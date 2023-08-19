@@ -9,15 +9,16 @@ int _printf(const char *format, ...)
 	va_list args;
 	char spec[6] = {'i', 'd', 'c', 's', 'b', 'o'};
 	char ignore[3] = {'%', '!', 'K'};
-	int total_written = 0;
-	int i = 0, j = 0;
-
-	if (format[0] == '\0')
+	int total_written = 0, i = 0, j = 0;
+	
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			for (j = 0; j < 6; j++)
 			{
