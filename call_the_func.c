@@ -13,7 +13,6 @@ int (*get_right_func(const char *s))(va_list)
         {'i', printf_i},
         {'d', printf_i},
         {'c', printf_char},
-        {'!', printf_char},
         {'b', printf_binary},
         {'o', print_o},
         {0, NULL}};
