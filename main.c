@@ -29,11 +29,11 @@ int main(void)
 	printf("Negative:[%d]\n", -762534);
 
 	
-	/* _printf("Unsigned:[%u]\n", ui); */
-	/* printf("Unsigned:[%u]\n", -4294967288); */
+	_printf("Unsigned:[%u]\n", ui);
+	printf("Unsigned:[%u]\n", ui);
 
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
+	_printf("Unsigned octal:[%o]\n", -10);
+	printf("Unsigned octal:[%o]\n", -10);
 
 	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
@@ -142,7 +142,7 @@ int main(void)
 	printf("%d", INT_MAX);
 	printf("\n------------------- CASE (4) -------------------\n");
 	/* we have an issue  out put -0  normally -2147483648 */
-	_printf("%d", INT_MIN);
+	_printf("%d\n", INT_MIN);
 	printf("%d", INT_MIN);
 	printf("\n------------------- CASE (5) -------------------\n");
 	_printf("%d\n", l);

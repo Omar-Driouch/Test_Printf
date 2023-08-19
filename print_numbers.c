@@ -87,3 +87,33 @@ int print_number(long num)
 
 	return (len);
 }
+
+/**
+ * printf_u - Prints a number as unsigned
+ * @o: Number to print
+ *
+ * Return: Length of the printed number
+ */
+int printf_u(va_list u)
+{
+	long num = va_arg(u, int);
+	const long UNSIGNED_MAX = 4294967296;
+
+	if (num < 0)
+		return (print_number(UNSIGNED_MAX + num));
+	
+	return (print_number(num));
+}
+
+/* int printf_x(va_list x)
+{
+	long dec = va_arg(x, long);
+	long i, oct = 0;
+	char hex[20];
+
+	for (i = 1; dec != 0; i *= 10)
+	{
+		oct += (dec % 8) * i;
+		dec /= 8;
+	}
+} */
