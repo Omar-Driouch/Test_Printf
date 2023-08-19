@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 				{
 					total_written += get_right_func(format + i + 1)(args);
 					i+=2;
-					/*break;*/
+					break;
 				}
 				else if (format[i + 1] == '%')
 				{
