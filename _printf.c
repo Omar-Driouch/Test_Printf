@@ -23,10 +23,9 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	for (i = 0; format[i] != '\0'; i++)
+	while (format[i] != '\0')
 	{
 		/* if format[i] == '%' then check the next character */
-		is_percent:
 		if (format[i] == '%')
 		{
 			for (j = 0; j < 5; j++)
@@ -35,18 +34,20 @@ int _printf(const char *format, ...)
 				{
 					len += get_formatting_func(format[++i])(args);
 					i++;
-					goto is_percent;
+					break;
 				}
 				else if (format[i + 1] == '%')
 				{
 					len += _putchar(format[++i]);
 					i++;
-					goto is_percent;
 				}
 			}
 		}
-
-		len += _putchar(format[i]);
+		else
+		{
+			len += _putchar(format[i]);
+			i++;
+		}
 	}
 
 	va_end(args);

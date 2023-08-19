@@ -58,11 +58,9 @@ int main(void)
 	/* _printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n"); */
 
+	printf(" --------- Task 0 --------- \n");
 
-	printf("\n<==== Task 0 ====>\n");
-
-
-	printf("Let's print a simple sentence.\n");
+	/* printf("Let's print a simple sentence.\n"); */
 	_printf("Let's print a simple sentence.\n");
 
 	printf("%c\n", 'S');
@@ -78,7 +76,10 @@ int main(void)
 	_printf("%s", "This sentence is retrieved from va_args!\n");
 
 	/* printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know"); */
-	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "----");
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "----");
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "----");
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "----");
 
 	/* printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
