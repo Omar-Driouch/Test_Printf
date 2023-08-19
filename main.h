@@ -28,6 +28,8 @@ int printf_char(va_list ls);
 int printf_binary(va_list ls);
 int print_rev(char *s);
 int count_binary_digits(int num);
+int print_number(long num);
+int print_o(va_list o);
 int (*get_right_func(const char *s))(va_list);
 
 #endif /* MAIN_H */
