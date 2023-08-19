@@ -25,7 +25,6 @@ int printf_s(va_list ls)
 
     if (str == NULL)
         str = "(null)";
-        
 
     while (*str != '\0')
     {
@@ -33,7 +32,7 @@ int printf_s(va_list ls)
         str++;
     }
 
-    return counter;
+    return (counter);
 }
 
 /**
@@ -48,39 +47,9 @@ int printf_s(va_list ls)
  */
 int printf_i(va_list ls)
 {
-    int counter = 0, i, numDigits = 0, divisor = 1, temp;
-    int num = (int)va_arg(ls, int);
 
-    if (num == 0)
-    {
-        _putchar('0');
-        return (0);
-    }
-    if (num < 0)
-    {
-        _putchar('-');
-        num = -num;
-    }
-    temp = num;
-    while (temp > 0)
-    {
-        temp /= 10;
-        numDigits++;
-    }
-
-    for (i = 1; i < numDigits; i++)
-        divisor *= 10;
-
-    while (divisor > 0)
-    {
-        int digit = num / divisor;
-        _putchar(digit + '0');
-        num %= divisor;
-        divisor /= 10;
-        counter++;
-    }
-
-    return counter;
+    long num = va_arg(ls, int);
+    return (print_number(num));
 }
 
 /**

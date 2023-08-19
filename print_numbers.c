@@ -89,7 +89,7 @@ int print_o(va_list o)
  */
 int print_number(long num)
 {
-	int len = 0;
+	long len = 0;
 
 	if (num < 0)
 	{
