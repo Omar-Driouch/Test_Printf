@@ -92,8 +92,11 @@ int main(void)
 	printf("%%");
 	_printf("Should print a single percent sign: %%\n");
 
-	printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	printf("---\n");
+/* 	printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n'); */
 	_printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	_printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	printf("---\n");
 
 	printf("css%ccs%scscscs", 'T', "Test");
 	 _printf("css%ccs%scscscs", 'T', "Test");
