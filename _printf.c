@@ -3,7 +3,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char spec[6] = {'i', 'd', 'c', 's', 'b','o'};
+	char spec[7] = {'i', 'd', 'c', 's', 'b','o','!'};
 	int total_written = 0;
 	int i = 0, j = 0;
 
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 
-			for (j = 0; j < 6; j++)
+			for (j = 0; j < 7; j++)
 			{
 				if (format[i + 1] == spec[j])
 				{
@@ -27,8 +27,9 @@ int _printf(const char *format, ...)
 					i+=2;
 					break;
 				}
-				else if (format[i + 1] == '%')
+				else if (format[i + 1] == '%' )
 				{
+					  
 					total_written += _putchar(format[++i]);
 					i++;
 				}

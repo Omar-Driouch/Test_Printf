@@ -13,7 +13,9 @@ int main(void)
 	int len;
 	int len2;
 	unsigned int ui;
-	/* void *addr; */
+ 
+   
+	
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
@@ -80,8 +82,8 @@ int main(void)
 	printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
 	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
 
-	/* printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
-	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0); */
+	printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 
 	printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 	_printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
@@ -107,18 +109,19 @@ int main(void)
 
 
     printf("===printing NULL bellow=====\n");
-	printf(NULL);
-	_printf(NULL); 
- printf("===printing '\0' bellow=====\n");
+	
+	/*printf(NULL);*/
+	/*_printf(NULL);*/ 
+ 	printf("===printing  bellow=====\n");
 	printf("%c\n", '\0');
-	_printf("%c\n", '\0');
+	/*_printf("%c\n", '\0');*/
 
- printf("===printing % bellow=====\n");
-	 printf("%");
-	_printf("%"); 
+ printf("===printing pertenteg bellow=====\n");
+	/* printf("%");*/
+	/*_printf("%"); */
 
-	/* printf("%!\n");
-	_printf("%!\n"); */
+	 printf("%!\n");
+	_printf("%!\n"); 
 
 	/* printf("%K\n");
 	_printf("%K\n"); */

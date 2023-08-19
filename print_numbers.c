@@ -61,8 +61,6 @@ int count_binary_digits(int num)
 	return (count);
 }
 
-
-
 /**
  * print_d - Prints a number in base 8 (octal)
  * @o: Number to print in base 8
@@ -106,3 +104,4 @@ int print_number(long num)
 
 	return (len);
 }
+

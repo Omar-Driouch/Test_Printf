@@ -24,10 +24,7 @@ int printf_s(va_list ls)
     char *str = va_arg(ls, char *);
 
     if (str == NULL)
-    {
-        print_rev(")llun(");
-        return counter;
-    }
+        str = "(null)";
         
 
     while (*str != '\0')
