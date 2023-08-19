@@ -16,26 +16,36 @@ int _printf(const char *format, ...)
 
 	/* Return -1 if format is NULL */
 	if (format == NULL)
+	{
+		va_end(args);
 		return (-1);
+	}
 
 	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		/* if format[i] == '%' then check the next character */
-		for (j = 0; format[i] == '%' && j < 5; j++)
+		is_percent:
+		if (format[i] == '%')
 		{
-			if (format[i + 1] == Specifiers[j])
+			for (j = 0; j < 5; j++)
 			{
-				len += get_formatting_func(format[++i])(args);
-				i++;
-			}
-			else if (format[i + 1] == '%')
-			{
-				len += _putchar(format[++i]);
-				i++;
+				if (format[i + 1] == Specifiers[j])
+				{
+					len += get_formatting_func(format[++i])(args);
+					i++;
+					goto is_percent;
+				}
+				else if (format[i + 1] == '%')
+				{
+					len += _putchar(format[++i]);
+					i++;
+					goto is_percent;
+				}
 			}
 		}
+
 		len += _putchar(format[i]);
 	}
 

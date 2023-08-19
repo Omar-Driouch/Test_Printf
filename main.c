@@ -77,7 +77,7 @@ int main(void)
 	printf("%s", "This sentence is retrieved from va_args!\n");
 	_printf("%s", "This sentence is retrieved from va_args!\n");
 
-	printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
+	/* printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know"); */
 	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
 
 	/* printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
