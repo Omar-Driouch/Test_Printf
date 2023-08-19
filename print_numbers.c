@@ -87,3 +87,16 @@ int print_number(long num)
 
 	return (len);
 }
+
+
+
+int printf_u(va_list u)
+{
+	long num = va_arg(u, int);
+	const long UNSIGNED_MAX = 4294967296;
+
+	if (num < 0)
+		return (print_number(UNSIGNED_MAX + num));
+	
+	return (print_number(num));
+}
