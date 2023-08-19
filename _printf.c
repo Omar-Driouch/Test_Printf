@@ -3,8 +3,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char spec[6] = {'i', 'd', 'c', 's', 'b','o'};
-	
+	char spec[6] = {'i', 'd', 'c', 's', 'b', 'o'};
+	char ignore[3] = {'%', '!','K'};
 	int total_written = 0;
 	int i = 0, j = 0;
 
@@ -25,21 +25,16 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == spec[j])
 				{
 					total_written += get_right_func(format + i + 1)(args);
-					i+=2;
+					i += 2;
 					break;
 				}
-				else if (format[i + 1] == '%' )
-				{
-					total_written += _putchar(format[++i]);
-					i++;
-				}
-				else if (format[i + 1] == '!' )
+				else if (ignore[j] == format[i + 1] && j < 3)
 				{
 					total_written += _putchar(format[i]);
-					i++;
-					break;
+					if (ignore[j] != '%')
+						total_written += _putchar(ignore[j]);
+					i += 2;
 				}
-				 
 			}
 		}
 		else

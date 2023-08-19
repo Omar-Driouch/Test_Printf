@@ -123,8 +123,8 @@ int main(void)
 	 printf("%!\n");
 	_printf("%!\n"); 
 
-	/* printf("%K\n");
-	_printf("%K\n"); */
+	printf("%K\n");
+	_printf("%K\n"); 
 
 
 	return (0);
