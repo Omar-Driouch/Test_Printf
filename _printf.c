@@ -1,55 +1,48 @@
 #include "main.h"
-
 /**
- * _printf - Print formatted output according to the format specifier
- * @format: A pointer to a format string containing the specifiers
- * @...: Additional arguments corresponding to the format specifiers
- *
- * Return: The number of characters printed, or -1 on error
+ * _printf - Custom implementation of the printf function
+ * @format: A pointer to a null-terminated format string.
+ * Return: The total number of characters printed, or -1 if an error occurs.
  */
 int _printf(const char *format, ...)
 {
-	/* This number '4' will be changed when we add more specifiers */
-	char Specifiers[5] = {'c', 's', 'd', 'i', 'o'};
-	int i, j, len = 0;
 	va_list args;
+	char spec[6] = {'i', 'd', 'c', 's', 'b', 'o'};
+	char ignore[4] = {'%', '!', 'K', 'r'};
+	int total_written = 0, i = 0, j = 0;
 
-	/* Return -1 if format is NULL */
-	if (format == NULL)
-	{
-		va_end(args);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	}
-
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
 	va_start(args, format);
-
 	while (format[i] != '\0')
 	{
-		/* if format[i] == '%' then check the next character */
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			for (j = 0; j < 5; j++)
+			for (j = 0; j < 6; j++)
 			{
-				if (format[i + 1] == Specifiers[j])
+				if (format[i + 1] == spec[j])
 				{
-					len += get_formatting_func(format[++i])(args);
-					i++;
+					total_written += get_right_func(format + i + 1)(args);
+					i += 2;
 					break;
 				}
-				else if (format[i + 1] == '%')
+				else if (ignore[j] == format[i + 1] && j < 4)
 				{
-					len += _putchar(format[++i]);
-					i++;
+					total_written += _putchar(format[i]);
+					if (ignore[j] != '%')
+						total_written += _putchar(ignore[j]);
+					i += 2;
 				}
 			}
 		}
 		else
 		{
-			len += _putchar(format[i]);
+			total_written += _putchar(format[i]);
 			i++;
 		}
 	}
-
 	va_end(args);
-	return (len);
+	return (total_written);
 }

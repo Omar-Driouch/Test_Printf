@@ -4,6 +4,7 @@
 /* Libraries */
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 
 /**
@@ -21,12 +22,14 @@ typedef struct formatter
 /* Prototypes */
 int _printf(const char *format, ...);
 int _putchar(char c);
-int (*get_formatting_func(const char c))(va_list);
+int printf_s(va_list);
+int printf_i(va_list);
+int printf_c(va_list c);
+int printf_b(va_list b);
+int printf_o(va_list o);
 
-/* Print functions for each Specifier */
-int print_c(va_list);
-int print_s(va_list);
-int print_d(va_list);
-int print_o(va_list);
+int print_number(long num);
+
+int (*get_right_func(const char *s))(va_list);
 
 #endif /* MAIN_H */
