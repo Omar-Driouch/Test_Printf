@@ -8,22 +8,22 @@
 
 int (*get_right_func(const char *s))(va_list)
 {
-    formatter_t Spe_func[] = {
-        {'s', printf_s},
-        {'i', printf_i},
-        {'d', printf_i},
-        {'c', printf_char},
-        {'b', printf_binary},
-        {'o', print_o},
-        {0, NULL}};
-    int i = 0;
+	formatter_t Spe_func[] = {
+		{'s', printf_s},
+		{'i', printf_i},
+		{'d', printf_i},
+		{'c', printf_c},
+		{'b', printf_b},
+		{'o', printf_o},
+		{0, NULL}};
+	int i = 0;
 
-    while (Spe_func[i].spec != 0)
-    {
-        if (Spe_func[i].spec == *s)
-            return (int (*)(va_list))Spe_func[i].func;
-        i++;
-    }
+	while (Spe_func[i].spec != 0)
+	{
+		if (Spe_func[i].spec == *s)
+			return ((int (*)(va_list))Spe_func[i].func);
+		i++;
+	}
 
-    return NULL;
+	return (NULL);
 }

@@ -15,8 +15,8 @@
  */
 typedef struct formatter
 {
-    char spec;
-    int (*func)(va_list);
+	char spec;
+	int (*func)(va_list);
 } formatter_t;
 
 /* Prototypes */
@@ -24,12 +24,12 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int printf_s(va_list);
 int printf_i(va_list);
-int printf_char(va_list ls);
-int printf_binary(va_list ls);
-int print_rev(char *s);
-int count_binary_digits(int num);
+int printf_c(va_list c);
+int printf_b(va_list b);
+int printf_o(va_list o);
+
 int print_number(long num);
-int print_o(va_list o);
+
 int (*get_right_func(const char *s))(va_list);
 
 #endif /* MAIN_H */

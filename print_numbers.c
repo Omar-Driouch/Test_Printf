@@ -1,73 +1,37 @@
 #include "main.h"
 
 /**
- * printf_binary - Custom printf conversion for binary integer printing.
+ * printf_b - Custom printf conversion for binary integer printing.
  *
  * Takes a va_list with an integer, converts it to binary
  * and prints the reversed binary string.
  *
- * @ls:ls - va_list with the integer to convert and print.
+ * @b:ls - va_list with the integer to convert and print.
  *
- * Return:Result of the print_rev function, indicating printed characters count.
+ * Return:Result of the print_rev function, indicating printed character count
  */
 
-int printf_binary(va_list ls)
+int printf_b(va_list b)
 {
-	int num = va_arg(ls, int);
-	int i = 0, result = 0;
-	char *bin = (char *)malloc((count_binary_digits(num) + 1) * sizeof(char));
+	long dec = va_arg(b, long);
+	long i, bin = 0;
 
-	if (bin == NULL)
+	for (i = 1; dec != 0; i *= 10)
 	{
-		return (-1); 
+		bin += (dec % 8) * i;
+		dec /= 8;
 	}
-	while (num > 0)
-	{
-		bin[i] = num % 2 + '0';
-		num = num / 2;
-		i++;
-	}
-	bin[i] = '\0';
 
-	result = print_rev(bin);
-
-	free(bin);
-
-	return result;
+	return (print_number(bin));
 }
 
 /**
- * count_binary_digits -  count how many digits in the binary digit
- * @num: the number
- * 
- * Return: the counted digits
-*/
-
-int count_binary_digits(int num)
-{
-	int count = 0;
-
-	if (num == 0)
-	{
-		return (1);
-	}
-
-	while (num > 0)
-	{
-		num = num / 2;
-		count++;
-	}
-
-	return (count);
-}
-
-/**
- * print_d - Prints a number in base 8 (octal)
+ * printf_o - Prints a number in base 8 (octal)
  * @o: Number to print in base 8
  *
  * Return: Length of the printed number
  */
-int print_o(va_list o)
+int printf_o(va_list o)
 {
 	long dec = va_arg(o, long);
 	long i, oct = 0;
@@ -79,6 +43,25 @@ int print_o(va_list o)
 	}
 
 	return (print_number(oct));
+}
+
+/**
+ * printf_i - Custom printf function to print an integer.
+ * @i: va_list containing the argument to be printed.
+ *
+ * This function is used as part of a custom printf implementation
+ * to print an integer
+ * argument. It handles both positive and negative integers, calculates
+ * the number of
+ * digits in the integer, and prints each digit separately.
+ *
+ * Return: The number of characters printed.
+ */
+int printf_i(va_list i)
+{
+	long num = va_arg(i, int);
+
+	return (print_number(num));
 }
 
 /**
@@ -104,4 +87,3 @@ int print_number(long num)
 
 	return (len);
 }
-
