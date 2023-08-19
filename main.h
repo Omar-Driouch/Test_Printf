@@ -27,6 +27,6 @@ int (*get_formatting_func(char c))(va_list);
 int print_c(va_list);
 int print_s(va_list);
 int print_d(va_list);
-int print_b(va_list);
+int print_o(va_list);
 
 #endif /* MAIN_H */

@@ -23,7 +23,29 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
+/**
+ * print_number - Prints a number
+ * @num: Number to print
+ *
+ * Return: Length of the printed number
+ */
+int print_number(long num)
+{
+	int len = 0;
 
+	if (num < 0)
+	{
+		num = -num;
+		len += _putchar('-');
+	}
+
+	if (num >= 10)
+		len += print_number(num / 10);
+
+	len += _putchar(num % 10 + '0');
+
+	return (len);
+}
 
 /* <============= These are the Specifier funcions =============> */
 
@@ -76,29 +98,27 @@ int print_s(va_list s)
  */
 int print_d(va_list d)
 {
-	int n = va_arg(d, int);
-	unsigned int i, len = 0, mag = 1, tmp = n;
-	/* int null_number = 0;
+	int decimal = va_arg(d, int);
 
-	if (n == NULL)
-		return (_putchar(null_number + '0')); */
+	return (print_number(decimal));
+}
 
-	if (n < 0)
+/**
+ * print_d - Prints a number in base 8 (octal)
+ * @o: Number to print in base 8
+ *
+ * Return: Length of the printed number
+ */
+int print_o(va_list o)
+{
+	long dec = va_arg(o, long);
+	long i, oct = 0;
+
+	for (i = 1; dec != 0; i *= 10)
 	{
-		n *= -1;
-		tmp = n;
-		_putchar('-');
-		len++;
+		oct += (dec % 8) * i;
+		dec /= 8;
 	}
 
-	while (tmp >= 10)
-	{
-		tmp /= 10;
-		mag *= 10;
-	}
-
-	for (i = 1; i <= mag; i *= 10)
-		len += _putchar((n / (mag / i)) % 10 + '0');
-
-	return (len);
+	return (print_number(oct));
 }

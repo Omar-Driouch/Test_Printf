@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	/* This number '4' will be changed when we add more specifiers */
-	char Specifiers[4] = {'c', 's', 'd', 'i'};
+	char Specifiers[5] = {'c', 's', 'd', 'i', 'o'};
 	int i, j, len = 0;
 	va_list args;
 
@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		/* if format[i] == '%' then check the next character */
-		for (j = 0; format[i] == '%' && j < 4; j++)
+		for (j = 0; format[i] == '%' && j < 5; j++)
 		{
 			if (format[i + 1] == Specifiers[j])
 			{
