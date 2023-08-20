@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"main.h": "c",
-		"print_numbers": "cpp"
+		"print_numbers": "cpp",
+		"stdio.h": "c"
 	}
 }

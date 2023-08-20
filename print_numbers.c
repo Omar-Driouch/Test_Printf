@@ -13,16 +13,26 @@
 
 int printf_b(va_list b)
 {
-	long dec = va_arg(b, long);
-	long i, bin = 0;
+	unsigned int dec = va_arg(b, unsigned int);
+	int i, count = 0;
+	int non_zero_found = 0;
 
-	for (i = 1; dec != 0; i *= 10)
+	for (i = 31; i >= 0; i--)
 	{
-		bin += (dec % 8) * i;
-		dec /= 8;
+		int mask = (1 << i);
+		if (dec & mask)
+		{
+			_putchar('1');
+			non_zero_found = 1;
+		}
+		else if (non_zero_found || i == 0)
+		{
+			_putchar('0');
+		}
+		count++;
 	}
 
-	return (print_number(bin));
+	return (count);
 }
 
 /**
@@ -88,7 +98,12 @@ int print_number(long num)
 	return (len);
 }
 
-
+/**
+ * printf_u - convert an input argument into unsigned int
+ * @u: the input args
+ *
+ * Return: the count  of printed numbers
+ */
 
 int printf_u(va_list u)
 {
@@ -97,6 +112,6 @@ int printf_u(va_list u)
 
 	if (num < 0)
 		return (print_number(UNSIGNED_MAX + num));
-	
+
 	return (print_number(num));
 }

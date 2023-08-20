@@ -28,7 +28,7 @@ int printf_c(va_list);
 int printf_b(va_list);
 int printf_o(va_list);
 int printf_u(va_list);
-
+int print_neg_bin(int);
 int print_number(long num);
 
 int (*get_right_func(const char *s))(va_list);
