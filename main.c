@@ -9,28 +9,28 @@
  */
 int main(void)
 {
+	void *addr;
 	char *str = "test\n";
 	int len;
 	int len2;
 	unsigned int ui;
 	long int l = 2147483647;
 
-	/* variables for task 4*/
-	char strr[1020] = "your_initial_string_value_here";
-	char s[1020];
-	char tmp[147] = "your_tmp_string_value_here";
-	char tmp2[97] = "your_tmp2_string_value_here";
-	/* end variables for task 4*/
-
 	long int l2 = UINT_MAX + 1024;
 	long int res = (long int)INT_MAX * 2;
 
 	long int l3 = UINT_MAX + 1024;
 
+	/* Task 4 Variabls */
+	char str4[1020] = "your_initial_string_value_here\n";
+	char s[1020];
+	char tmp[147] = "your_tmp_string_value_here\n";
+	char tmp2[97] = "your_tmp2_string_value_here\n";
+
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	ui = (unsigned int)INT_MAX + 1024;
-	/* addr = (void *)0x7ffe637541f0; */
+	addr = (void *)0x7ffe637541f0;
 
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
@@ -44,7 +44,7 @@ int main(void)
 	printf("Unsigned octal:[%o]\n", -10);
 
 	_printf("Unsigned binary:[%b]\n", 15);
-	_printf("Unsigned binary:[%b]\n", -15);
+	printf("Unsigned binary:[%b]\n", -15);
 
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
@@ -54,8 +54,8 @@ int main(void)
 	_printf("String:[%s]\n", "I am a string !");
 	printf("String:[%s]\n", "I am a string !");
 
-	/* _printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr); */
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
 
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
@@ -141,6 +141,7 @@ int main(void)
 	_printf("%d\n", INT_MAX);
 	printf("%d", INT_MAX);
 	printf("\n------------------- CASE (4) -------------------\n");
+	/* we have an issue  out put -0  normally -2147483648 */
 	_printf("%d\n", INT_MIN);
 	printf("%d", INT_MIN);
 	printf("\n------------------- CASE (5) -------------------\n");
@@ -156,6 +157,7 @@ int main(void)
 	_printf("%d - %d = %d\n", 1024, 2048, -1024);
 	printf("%d - %d = %d\n", 1024, 2048, -1024);
 	printf("\n------------------- CASE (9) -------------------\n");
+	/* we have an isssue here the output is -0 + 2147483647 = -1  the expected value is -2147483648 + 2147483647 = -1 */
 	_printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("\n------------------- CASE (10) -------------------\n");
@@ -171,6 +173,7 @@ int main(void)
 	_printf("%i\n", INT_MAX);
 	printf("%i", INT_MAX);
 	printf("\n------------------- CASE (14) -------------------\n");
+	/* we have an issue  out put -0  normally -2147483648 */
 	_printf("%i\n", INT_MIN);
 	printf("%i", INT_MIN);
 	printf("\n------------------- CASE (15) -------------------\n");
@@ -186,6 +189,7 @@ int main(void)
 	_printf("%i - %i = %i\n", 1024, 2048, -1024);
 	printf("%i - %i = %i\n", 1024, 2048, -1024);
 	printf("\n------------------- CASE (19) -------------------\n");
+	/* we have an isssue here the output is -0 + 2147483647 = -1  the expected value is -2147483648 + 2147483647 = -1 */
 	_printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("\n------------------- CASE (20) -------------------\n");
@@ -364,22 +368,25 @@ int main(void)
 	_printf("uuoxxX%xuoXo\n", 1024);
 	printf("uuoxxX%xuoXo\n", 1024);
 
-	printf("\n================== TASK 4 ===========================\n\n");
+	printf("\n<========= Task 4 ============>\n");
 
-	_printf("%s\n", strr);
-	_printf("%s\n", strr);
+	_printf(str4);
+	printf(str4);
 
-	printf("%s\n", strr);
-	_printf("%s\n", strr);
+	_printf(str4);
+	printf(str4);
 
-	printf("%s %d\n", strr, 123456789);
-	_printf("%s %d\n", strr, 123456789);
+	_printf(str4, 123456789);
+	printf(str4, 123456789);
 
-	printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
-	_printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
+	printf("\n==================\n");
+	printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
+	printf("\n==================\n");
+	_printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
+	printf("\n==================\n");
 
-	printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
-	_printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
+	printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
+	_printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
 
 	printf("%s%b\n", s, INT_MAX);
 	_printf("%s%b\n", s, INT_MAX);
@@ -394,6 +401,16 @@ int main(void)
 	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
 	printf("\n");
 	_printf("Could you print some non-printable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
-	printf("\n================== TASK 5 DONE ===========================\n\n");
+
+	printf("\n================== TASK 6 ===========================\n\n");
+/* 
+	_printf("%p\n", (void)0x7fff5100b608);
+	_printf("%p", NULL);
+	_printf("\nCan you print an address?\n%p\nNice!\n", (void)0x7fff5100b6f8);
+	_printf("\nCan you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void)0x7fff5100b6f8, (void)0x7faf51f0f608, (void)0x6ff42510b6f8, (void)0x7fff510236f8);
+	_printf("");
+	_printf("\nCan you print an address?\n%p\nNice!\n", (void)-1);
+	_printf("%pppp\n", (void)0x7fff5100b6f8); */
+
 	return (0);
 }

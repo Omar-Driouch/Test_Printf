@@ -30,6 +30,7 @@ int printf_o(va_list);
 int printf_u(va_list);
 int printf_x(va_list);
 int printf_X(va_list);
+int printf_p(va_list p);
 int printf_S(va_list S);
 int printf_x_or_X(unsigned int num, int IsLower);
 int print_number(long num);
