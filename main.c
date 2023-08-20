@@ -5,18 +5,11 @@
 
 int main()
 {
-   
  
+ 
+    printf("\nTest case 2\n");
+    _printf("%b\n", -10);
+    _printf("%b\n", 10);
     
-   
-    _printf("%b", 10);
-
-   printf("\nTest case 2\n");
-    _printf("%b", -10);
-    
-
- 
- 
-
 	return 0;
 }

@@ -1,4 +1,18 @@
-   
+#include <stdio.h>
+#include <limits.h>
+#include "main.h"
+
+
+int main()
+{
+
+    int res = 10000;
+    long l = 10000;
+    printf("\nTest case 2\n");
+    _printf("%b\n", -10);
+    _printf("%b\n", 10);
+    
+ 
     printf("\nTest case 2\n");
     _printf("%b", -1024);
      
@@ -42,3 +56,5 @@
     printf("\nTest case 10\n");
     _printf("uuoxxX%xuoXo\n", 1024);
     printf("uuoxxX%xuoXo\n", 1024);
+    return 0;
+    }

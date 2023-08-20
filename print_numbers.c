@@ -13,14 +13,14 @@
 
 int printf_b(va_list b)
 {
-	unsigned int dec = va_arg(b, unsigned int);
-	int i, count = 0;
+	unsigned int dec = va_arg(b, int);
+	int i = 31, lenght = 0;
 	int non_zero_found = 0;
 
-	for (i = 31; i >= 0; i--)
+	while (i >= 0)
 	{
-		int mask = (1 << i);
-		if (dec & mask)
+		int qinae = (1 << i);
+		if (dec & qinae)
 		{
 			_putchar('1');
 			non_zero_found = 1;
@@ -29,10 +29,11 @@ int printf_b(va_list b)
 		{
 			_putchar('0');
 		}
-		count++;
+		lenght++;
+		i--;
 	}
 
-	return (count);
+	return (lenght);
 }
 
 /**
@@ -43,8 +44,12 @@ int printf_b(va_list b)
  */
 int printf_o(va_list o)
 {
-	long dec = va_arg(o, long);
+	long dec = va_arg(o, int);
 	long i, oct = 0;
+	const long UNSIGNED_MAX = 4294967296;
+
+	if (dec < 0)
+		dec += UNSIGNED_MAX;
 
 	for (i = 1; dec != 0; i *= 10)
 	{
