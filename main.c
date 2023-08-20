@@ -18,6 +18,7 @@ int main(void)
 	long int l2 = UINT_MAX + 1024;
 	long int res = (long int)INT_MAX * 2;
 	
+	long int l3 = UINT_MAX + 1024;
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
@@ -40,8 +41,8 @@ int main(void)
 	_printf("Unsigned binary:[%b]\n", 15);
 	_printf("Unsigned binary:[%b]\n", -15);
 
-	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
+	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
 
 	_printf("Character:[%c]\n", 'H');
@@ -210,7 +211,7 @@ int main(void)
 	_printf("%i\n", 10000);
 	printf("%i", 10000);
 
-	printf("\n<==== Task 1 ====>\n");
+	printf("\n<==== Task 2 ====>\n");
 
 	/* // Test case 1 */
 	printf("Test case 1\n");
@@ -258,13 +259,123 @@ int main(void)
 
 	/* // Test case 9 */
 	printf("\nTest case 9\n");
-	/* _printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
-	printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024); */
+	_printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
+	printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
 
 	/* // Test case 10 */
 	printf("\nTest case 10\n");
-	/* _printf("uuoxxX%xuoXo\n", 1024);
-	printf("uuoxxX%xuoXo\n", 1024); */
+	_printf("uuoxxX%xuoXo\n", 1024);
+	printf("uuoxxX%xuoXo\n", 1024);
+
+	_printf("x = %x, -x = %x, X = %X, -X = %X\n", 255, -255, 255, -255);
+	printf("x = %x, -x = %x, X = %X, -X = %X\n", 255, -255, 255, -255);
+
+
+
+
+	printf("\n<==== Task 3 ====>\n");
+
+	_printf("%u\n", 1024);
+	printf("%u\n", 1024);
+
+	_printf("%u\n", -1024);
+	printf("%u\n", -1024);
+
+	_printf("%u\n", 0);
+	printf("%u\n", 0);
+
+	_printf("%u\n", UINT_MAX);
+	printf("%u\n", UINT_MAX);
+
+	_printf("%u\n", l3);
+	printf("%u\n", l3);
+
+	_printf("There is %u bytes in %u KB\n", 1024, 1);
+	printf("There is %u bytes in %u KB\n", 1024, 1);
+
+	_printf("%u - %u = %u\n", 2048, 1024, 1024);
+	printf("%u - %u = %u\n", 2048, 1024, 1024);
+
+	_printf("%u + %u = %u\n", INT_MAX, INT_MAX, res);
+	printf("%u + %u = %u\n", INT_MAX, INT_MAX, res);
+
+	_printf("%o\n", 1024);
+	printf("%o\n", 1024);
+
+	_printf("%o\n", -1024);
+	printf("%o\n", -1024);
+
+	_printf("%o\n", 0);
+	printf("%o\n", 0);
+
+	_printf("%o\n", UINT_MAX);
+	printf("%o\n", UINT_MAX);
+
+	_printf("%o\n", l3);
+	printf("%o\n", l3);
+
+	_printf("There is %o bytes in %o KB\n", 1024, 1);
+	printf("There is %o bytes in %o KB\n", 1024, 1);
+
+	_printf("%o - %o = %o\n", 2048, 1024, 1024);
+	printf("%o - %o = %o\n", 2048, 1024, 1024);
+
+	_printf("%o + %o = %o\n", INT_MAX, INT_MAX, res);
+	printf("%o + %o = %o\n", INT_MAX, INT_MAX, res);
+
+	_printf("%x\n", 1024);
+	printf("%x\n", 1024);
+
+	_printf("%x\n", -1024);
+	printf("%x\n", -1024);
+
+	_printf("%x\n", 0);
+	printf("%x\n", 0);
+
+	_printf("%x\n", UINT_MAX);
+	printf("%x\n", UINT_MAX);
+
+	_printf("%x\n", l3);
+	printf("%x\n", l3);
+
+	_printf("There is %x bytes in %x KB\n", 1024, 1);
+	printf("There is %x bytes in %x KB\n", 1024, 1);
+
+	_printf("%x - %x = %x\n", 2048, 1024, 1024);
+	printf("%x - %x = %x\n", 2048, 1024, 1024);
+
+	_printf("%x + %x = %x\n", INT_MAX, INT_MAX, res);
+	printf("%x + %x = %x\n", INT_MAX, INT_MAX, res);
+
+	_printf("%X\n", 1024);
+	_printf("%X\n", 1024);
+
+	_printf("%X\n", -1024);
+	printf("%X\n", -1024);
+
+	_printf("%X\n", 0);
+	printf("%X\n", 0);
+
+	_printf("%X\n", UINT_MAX);
+	printf("%X\n", UINT_MAX);
+
+	_printf("%X\n", l3);
+	printf("%X\n", l3);
+
+	_printf("There is %X bytes in %X KB\n", 1024, 1);
+	printf("There is %X bytes in %X KB\n", 1024, 1);
+
+	_printf("%X - %X = %X\n", 2048, 1024, 1024);
+	printf("%X - %X = %X\n", 2048, 1024, 1024);
+
+	_printf("%X + %X = %X\n", INT_MAX, INT_MAX, res);
+	printf("%X + %X = %X\n", INT_MAX, INT_MAX, res);
+
+	_printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
+	printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
+
+	_printf("uuoxxX%xuoXo\n", 1024);
+	printf("uuoxxX%xuoXo\n", 1024);
 
 
 	return (0);

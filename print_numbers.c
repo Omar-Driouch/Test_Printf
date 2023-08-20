@@ -116,15 +116,62 @@ int printf_u(va_list u)
 	return (print_number(num));
 }
 
-/* int printf_x(va_list x)
+/**
+ * printf_x_or_X - Converts and prints a decimal to its hex value
+ * @num: Decimal number to convert
+ * @is_lower: Decides to print the hex either in upper or lower case
+ *
+ * Return: Length of the printed number
+ */
+int printf_x_or_X(unsigned int num, int is_lower)
 {
-	long dec = va_arg(x, long);
-	long i, oct = 0;
-	char hex[20];
+	int i, len = 0;
+	int hex_digit;
+	char char_base = 'A';
 
-	for (i = 1; dec != 0; i *= 10)
+	if (num == 0)
 	{
-		oct += (dec % 8) * i;
-		dec /= 8;
+		_putchar('0');
+		return (1);
 	}
-} */
+
+	if (is_lower)
+		char_base = 'a';
+
+	for (i = 28; i >= 0; i -= 4)
+	{
+		/* Shifting and using Bitwise opearnd to take the Hex value */
+		hex_digit = (num >> i) & 0xF;
+
+		if (hex_digit > 0 || len > 0)
+		{
+			if (hex_digit < 10)
+				len += _putchar(hex_digit + '0');
+			else
+				len += _putchar(hex_digit - 10 + char_base);
+		}
+	}
+	return (len);
+}
+
+/**
+ * printf_x - Prints a number in base 16 (Hex Lowercase)
+ * @x: Number to print
+ *
+ * Return: Length of the printed number
+ */
+int printf_x(va_list x)
+{
+	return (printf_x_or_X(va_arg(x, int), 1));
+}
+
+/**
+ * printf_X - Prints a number in base 16 (Hex Uppercase)
+ * @X: Number to print
+ *
+ * Return: Length of the printed number
+ */
+int printf_X(va_list X)
+{
+	return (printf_x_or_X(va_arg(X, int), 0));
+}

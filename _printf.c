@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char spec[7] = {'i', 'd', 'c', 's', 'b', 'o', 'u'};
+	char spec[] = {'c', 's', 'i', 'd', 'u', 'b', 'o', 'x', 'X', '\0'};
 	char ignore[4] = {'%', '!', 'K', 'r'};
 	int total_written = 0, i = 0, j = 0;
 
@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			for (j = 0; j < 7; j++)
+			for (j = 0; spec[j] != '\0'; j++)
 			{
 				if (format[i + 1] == spec[j])
 				{
