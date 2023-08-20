@@ -16,6 +16,8 @@ int (*get_right_func(const char *s))(va_list)
 		{'b', printf_b},
 		{'o', printf_o},
 		{'u', printf_u},
+		{'x', printf_x},
+		{'X', printf_X},
 		{0, NULL}};
 	int i = 0;
 

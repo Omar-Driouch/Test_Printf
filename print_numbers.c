@@ -20,6 +20,7 @@ int printf_b(va_list b)
 	while (i >= 0)
 	{
 		int qinae = (1 << i);
+
 		if (dec & qinae)
 		{
 			_putchar('1');

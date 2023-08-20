@@ -52,3 +52,48 @@ int printf_c(va_list c)
 
 	return (_putchar(ch));
 }
+
+int printf_x_or_X(unsigned int num, int IsLower)
+{
+
+	int i, length = 0;
+	int chr = 65;
+  
+	if (IsLower)
+	 
+		chr = 97;
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return 1;
+	}
+
+	for (i = 28; i >= 0; i -= 4)
+	{
+		int hex_digit = (num >> i) & 0xF;
+
+		if (hex_digit > 0 || length > 0)
+		{
+			if (hex_digit < 10)
+				_putchar(hex_digit + '0');
+			else
+				_putchar(hex_digit - 10 + chr);
+
+			length++;
+		}
+	}
+
+	return length;
+}
+
+int printf_x(va_list args)
+{
+	return (printf_x_or_X(va_arg(args, int), 1));
+}
+
+
+int printf_X(va_list args)
+{
+	return (printf_x_or_X(va_arg(args, int), 0));
+} 
