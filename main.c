@@ -363,7 +363,6 @@ int main(void)
 
 	_printf("uuoxxX%xuoXo\n", 1024);
 	printf("uuoxxX%xuoXo\n", 1024);
-	 
 
 	printf("\n================== TASK 4 ===========================\n\n");
 
@@ -385,5 +384,16 @@ int main(void)
 	printf("%s%b\n", s, INT_MAX);
 	_printf("%s%b\n", s, INT_MAX);
 
+	printf("\n================== TASK 5 ===========================\n\n");
+
+	_printf("%S", "No special character.");
+	printf("\n");
+	_printf("%S", "\n");
+	printf("%S", "\n");
+	printf("\n");
+	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
+	printf("\n");
+	_printf("Could you print some non-printable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+	printf("\n================== TASK 5 DONE ===========================\n\n");
 	return (0);
 }
