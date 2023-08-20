@@ -13,11 +13,18 @@ int main(void)
 	int len;
 	int len2;
 	unsigned int ui;
- 	long int l = 2147483647;
-   
+	long int l = 2147483647;
+
+	/* variables for task 4*/
+	char strr[1020] = "your_initial_string_value_here";
+	char s[1020];
+	char tmp[147] = "your_tmp_string_value_here";
+	char tmp2[97] = "your_tmp2_string_value_here";
+	/* end variables for task 4*/
+
 	long int l2 = UINT_MAX + 1024;
 	long int res = (long int)INT_MAX * 2;
-	
+
 	long int l3 = UINT_MAX + 1024;
 
 	len = _printf("Let's try to printf a simple sentence.\n");
@@ -25,13 +32,11 @@ int main(void)
 	ui = (unsigned int)INT_MAX + 1024;
 	/* addr = (void *)0x7ffe637541f0; */
 
-
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
 	_printf("Negative:[%d]\n", -762534);
 	printf("Negative:[%d]\n", -762534);
 
-	
 	_printf("Unsigned:[%u]\n", ui);
 	printf("Unsigned:[%u]\n", ui);
 
@@ -44,31 +49,24 @@ int main(void)
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
-
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
 	_printf("String:[%s]\n", "I am a string !");
 	printf("String:[%s]\n", "I am a string !");
 
-
 	/* _printf("Address:[%p]\n", addr);
 	printf("Address:[%p]\n", addr); */
-
 
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
 
-
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 
-	
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
 
-
 	printf("\n<==== Task 0 ====>\n");
-
 
 	printf("Let's print a simple sentence.\n");
 	_printf("Let's print a simple sentence.\n");
@@ -103,8 +101,7 @@ int main(void)
 	_printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
 
 	printf("css%ccs%scscscs\n", 'T', "Test");
-	 _printf("css%ccs%scscscs\n", 'T', "Test");
-
+	_printf("css%ccs%scscscs\n", 'T', "Test");
 
 	printf(str);
 	_printf(str);
@@ -112,28 +109,25 @@ int main(void)
 	printf("man gcc:\n%s", str);
 	_printf("man gcc:\n%s", str);
 
+	printf("===printing NULL bellow=====\n");
 
-
-    printf("===printing NULL bellow=====\n");
-	
 	printf(NULL);
 	_printf(NULL);
- 	printf("===printing  bellow=====\n");
+	printf("===printing  bellow=====\n");
 	printf("%c\n", '\0');
 	_printf("%c\n", '\0');
 
- 	printf("===printing pertenteg bellow=====\n");
+	printf("===printing pertenteg bellow=====\n");
 	printf("%");
 	_printf("%");
 
-	 printf("%!\n");
-	_printf("%!\n"); 
+	printf("%!\n");
+	_printf("%!\n");
 
 	printf("%K\n");
 	_printf("%K\n");
 
 	printf("\n<==== Task 1 ====>\n");
-
 
 	_printf("%d\n", 1024);
 	printf("%d", 1024);
@@ -147,7 +141,6 @@ int main(void)
 	_printf("%d\n", INT_MAX);
 	printf("%d", INT_MAX);
 	printf("\n------------------- CASE (4) -------------------\n");
-	/* we have an issue  out put -0  normally -2147483648 */
 	_printf("%d\n", INT_MIN);
 	printf("%d", INT_MIN);
 	printf("\n------------------- CASE (5) -------------------\n");
@@ -163,12 +156,11 @@ int main(void)
 	_printf("%d - %d = %d\n", 1024, 2048, -1024);
 	printf("%d - %d = %d\n", 1024, 2048, -1024);
 	printf("\n------------------- CASE (9) -------------------\n");
-	/* we have an isssue here the output is -0 + 2147483647 = -1  the expected value is -2147483648 + 2147483647 = -1 */
 	_printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("\n------------------- CASE (10) -------------------\n");
 	_printf("%i\n", 1024);
-	printf("%i", 1024); 
+	printf("%i", 1024);
 	printf("\n------------------- CASE (11) -------------------\n");
 	_printf("%i\n", -1024);
 	printf("%i", -1024);
@@ -179,7 +171,6 @@ int main(void)
 	_printf("%i\n", INT_MAX);
 	printf("%i", INT_MAX);
 	printf("\n------------------- CASE (14) -------------------\n");
-	/* we have an issue  out put -0  normally -2147483648 */
 	_printf("%i\n", INT_MIN);
 	printf("%i", INT_MIN);
 	printf("\n------------------- CASE (15) -------------------\n");
@@ -195,7 +186,6 @@ int main(void)
 	_printf("%i - %i = %i\n", 1024, 2048, -1024);
 	printf("%i - %i = %i\n", 1024, 2048, -1024);
 	printf("\n------------------- CASE (19) -------------------\n");
-	/* we have an isssue here the output is -0 + 2147483647 = -1  the expected value is -2147483648 + 2147483647 = -1 */
 	_printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("\n------------------- CASE (20) -------------------\n");
@@ -269,9 +259,6 @@ int main(void)
 
 	_printf("x = %x, -x = %x, X = %X, -X = %X\n", 255, -255, 255, -255);
 	printf("x = %x, -x = %x, X = %X, -X = %X\n", 255, -255, 255, -255);
-
-
-
 
 	printf("\n<==== Task 3 ====>\n");
 
@@ -376,14 +363,27 @@ int main(void)
 
 	_printf("uuoxxX%xuoXo\n", 1024);
 	printf("uuoxxX%xuoXo\n", 1024);
+	 
 
+	printf("\n================== TASK 4 ===========================\n\n");
 
+	_printf("%s\n", strr);
+	_printf("%s\n", strr);
 
-	printf("================== TASK 4 ===========================");
+	printf("%s\n", strr);
+	_printf("%s\n", strr);
 
+	printf("%s %d\n", strr, 123456789);
+	_printf("%s %d\n", strr, 123456789);
 
+	printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
+	_printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
 
-	
+	printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
+	_printf("%s %s %s %c %c %s %s %c %s %d\n", strr, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
+
+	printf("%s%b\n", s, INT_MAX);
+	_printf("%s%b\n", s, INT_MAX);
 
 	return (0);
 }
