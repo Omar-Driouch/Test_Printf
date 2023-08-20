@@ -10,19 +10,25 @@
  *
  * Return:Result of the print_rev function, indicating printed character count
  */
-
 int printf_b(va_list b)
 {
-	long dec = va_arg(b, long);
-	long i, bin = 0;
+	unsigned int dec = va_arg(b, int);
+	int i = 32 - 1, len = 0;
+	int shiftter, non_zero_found = 0;
 
-	for (i = 1; dec != 0; i *= 10)
+	while (i >= 0)
 	{
-		bin += (dec % 8) * i;
-		dec /= 8;
+		shiftter = (1 << i);
+		if (dec & shiftter)
+		{
+			len += _putchar('1');
+			non_zero_found = 1;
+		}
+		else if (non_zero_found || i == 0)
+			len += _putchar('0');
+		i--;
 	}
-
-	return (print_number(bin));
+	return (len);
 }
 
 /**
@@ -33,14 +39,19 @@ int printf_b(va_list b)
  */
 int printf_o(va_list o)
 {
-	long dec = va_arg(o, long);
+	long dec = va_arg(o, int);
 	long i, oct = 0;
+	const long UNSIGNED_MAX = 4294967296;
+
+	if (dec < 0)
+		dec += UNSIGNED_MAX;
 
 	for (i = 1; dec != 0; i *= 10)
 	{
 		oct += (dec % 8) * i;
 		dec /= 8;
 	}
+
 
 	return (print_number(oct));
 }

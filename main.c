@@ -15,6 +15,8 @@ int main(void)
 	unsigned int ui;
  	long int l = 2147483647;
    
+	long int l2 = UINT_MAX + 1024;
+	long int res = (long int)INT_MAX * 2;
 	
 
 	len = _printf("Let's try to printf a simple sentence.\n");
@@ -34,6 +36,9 @@ int main(void)
 
 	_printf("Unsigned octal:[%o]\n", -10);
 	printf("Unsigned octal:[%o]\n", -10);
+
+	_printf("Unsigned binary:[%b]\n", 15);
+	_printf("Unsigned binary:[%b]\n", -15);
 
 	/* _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui); */
@@ -204,5 +209,73 @@ int main(void)
 	printf("\n------------------- CASE (23) -------------------\n");
 	_printf("%i\n", 10000);
 	printf("%i", 10000);
+
+	printf("\n<==== Task 1 ====>\n");
+
+	/* // Test case 1 */
+	printf("Test case 1\n");
+	_printf("%b\n", 1024);
+	printf("%b\n", 1024);
+
+	/* // Test case 2 */
+	printf("\nTest case 2\n");
+	_printf("%b\n", -1024);
+	printf("%b\n", -1024);
+
+	/* // Test case 3 */
+	printf("\nTest case 3\n");
+	_printf("%b\n", 0);
+	printf("%b\n", 0);
+
+	/* // Test case 4 */
+	printf("\nTest case 4\n");
+	_printf("%b\n", UINT_MAX);
+	printf("%b\n", UINT_MAX);
+
+	/* // Define and initialize 'l' as a long int equals to UINT_MAX + 1024 */
+
+	/* // Test case 5 */
+	printf("\nTest case 5\n");
+	_printf("%b\n", l2);
+	printf("%b\n", l2);
+
+	/* // Test case 6 */
+	printf("\nTest case 6\n");
+	_printf("There is %b bytes in %b KB\n", 1024, 1);
+	printf("There is %b bytes in %b KB\n", 1024, 1);
+
+	/* // Test case 7 */
+	printf("\nTest case 7\n");
+	_printf("%b - %b = %b\n", 2048, 1024, 1024);
+	printf("%b - %b = %b\n", 2048, 1024, 1024);
+
+	/* // Define 'res' as a long int equals to INT_MAX * 2 */
+
+	/* // Test case 8 */
+	printf("\nTest case 8\n");
+	_printf("%b + %b = %b\n", INT_MAX, INT_MAX, res);
+	printf("%b + %b = %b\n", INT_MAX, INT_MAX, res);
+
+	/* // Test case 9 */
+	printf("\nTest case 9\n");
+	/* _printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
+	printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024); */
+
+	/* // Test case 10 */
+	printf("\nTest case 10\n");
+	/* _printf("uuoxxX%xuoXo\n", 1024);
+	printf("uuoxxX%xuoXo\n", 1024); */
+
+
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
