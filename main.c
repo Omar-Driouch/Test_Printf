@@ -9,6 +9,7 @@
  */
 int main(void)
 {
+	void *addr;
 	char *str = "test\n";
 	int len;
 	int len2;
@@ -20,10 +21,16 @@ int main(void)
 	
 	long int l3 = UINT_MAX + 1024;
 
+	/* Task 4 Variabls */
+	char str4[1020] = "your_initial_string_value_here\n";
+	char s[1020];
+	char tmp[147] = "your_tmp_string_value_here\n";
+	char tmp2[97] = "your_tmp2_string_value_here\n";
+
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	ui = (unsigned int)INT_MAX + 1024;
-	/* addr = (void *)0x7ffe637541f0; */
+	addr = (void *)0x7ffe637541f0;
 
 
 	_printf("Length:[%d, %i]\n", len, len);
@@ -39,7 +46,7 @@ int main(void)
 	printf("Unsigned octal:[%o]\n", -10);
 
 	_printf("Unsigned binary:[%b]\n", 15);
-	_printf("Unsigned binary:[%b]\n", -15);
+	printf("Unsigned binary:[%b]\n", -15);
 
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
@@ -51,8 +58,8 @@ int main(void)
 	printf("String:[%s]\n", "I am a string !");
 
 
-	/* _printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr); */
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
 
 
 	len = _printf("Percent:[%%]\n");
@@ -376,6 +383,32 @@ int main(void)
 
 	_printf("uuoxxX%xuoXo\n", 1024);
 	printf("uuoxxX%xuoXo\n", 1024);
+
+
+
+
+	printf("\n<========= Task 4 ============>\n");
+
+	_printf(str4);
+	printf(str4);
+
+	_printf(str4);
+	printf(str4);
+
+	_printf(str4, 123456789);
+	printf(str4, 123456789);
+
+		printf("\n==================\n");
+	printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
+		printf("\n==================\n");
+	_printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 8);
+		printf("\n==================\n");
+
+	printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
+	_printf("%s %s %s %c %c %s %s %c %s %d\n", str4, "you", "normally does preprocessing, compilation, assembly", '"', '"', "For example,", tmp, 'o', tmp2, 123456789);
+
+	printf("%s%b\n", s, INT_MAX);
+	_printf("%s%b\n", s, INT_MAX);
 
 
 	return (0);

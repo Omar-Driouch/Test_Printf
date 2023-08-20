@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	char Specifiers[] = {'c', 's', 'd', 'i', 'u', 'o', 'b', 'x', 'X', '\0'};
+	char Specifiers[] = {'c', 's', 'd', 'i', 'u', 'o', 'b', 'x', 'X', 'p', '\0'};
 	int i, j, len = 0;
 	va_list args;
 

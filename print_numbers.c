@@ -175,3 +175,51 @@ int printf_X(va_list X)
 {
 	return (printf_x_or_X(va_arg(X, int), 0));
 }
+
+/**
+ * printf_p - Prints the address of the given pointer
+ * @p: Pointer to print its address
+ *
+ * Return: Length of the printed address
+ */
+int printf_p(va_list p)
+{
+	void *addr = va_arg(p, void *);
+	char *null_addr = "(nil)";
+	int i, hex_num_digits, start_printing_digits = 0, len = 0;
+	unsigned long addr_value;
+
+	if (addr == NULL)
+	{
+		while (*null_addr != '\0')
+			len += _putchar(*(null_addr++));
+		return (len);
+	}
+	
+	addr_value = (unsigned long)addr;
+
+	len += _putchar('0');
+	len += _putchar('x');
+
+	if (addr == 0)
+		return (_putchar('0') + len);
+
+	hex_num_digits = (sizeof(void *) * 2);
+
+	i = (hex_num_digits - 1) * 4;
+	while (i >= 0)
+	{
+		int hex_digit = (addr_value >> i) & 0xF;
+
+		if (hex_digit > 0 || start_printing_digits)
+		{
+			start_printing_digits = 1;
+			if (hex_digit < 10)
+				len += putchar(hex_digit + '0');
+			else
+				len += putchar(hex_digit - 10 + 'a');
+		}
+		i -= 4;
+	}
+	return (len);
+}
