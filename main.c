@@ -378,5 +378,12 @@ int main(void)
 	printf("uuoxxX%xuoXo\n", 1024);
 
 
+
+	printf("================== TASK 4 ===========================");
+
+
+
+	
+
 	return (0);
 }
