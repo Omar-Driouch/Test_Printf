@@ -96,27 +96,33 @@ int printf_r(va_list r)
 	int i = 0, j = 0, len = 0, isnewLine = 0;
 
 	while (str[i] != '\0')
+	{
 		i++;
+		if (str[i]=='\n')
+		{
+			isnewLine = 1;
+		}
+		
+	}
 
-	rev = (char *)malloc(i + 1);
+	rev = (char *)malloc(i + 2);
 	if (rev == NULL)
 		return (0);
 
-	for (j = i - 1; j >= 0; j--)
+	for (j = i; j >= 0; j--)
 	{
 		if (str[j] != '\n')
 			rev[i - 1 - j] = str[j];
 	}
 
-	if (isnewLine)
-	{
-	}
-
-	rev[i] = '\0';
-
-	len = _printf("%s", rev);
+	rev[i++] = '\0';
+	if (isnewLine == 1)
+		len = _printf("%s\n", rev);
+	else
+		len = _printf("%s", rev);
 
 	free(rev);
+
 	return (len);
 }
 
