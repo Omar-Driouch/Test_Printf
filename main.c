@@ -23,7 +23,7 @@ int main(void)
 
 	/* Task 4 Variabls */
 	char str4[1020] = "your_initial_string_value_here\n";
-	char s[1020];
+	char s[1020] = {0};
 	char tmp[147] = "your_tmp_string_value_here\n";
 	char tmp2[97] = "your_tmp2_string_value_here\n";
 
@@ -395,22 +395,281 @@ int main(void)
 
 	_printf("%S", "No special character.");
 	printf("\n");
-	_printf("%S", "\n");
-	printf("%S", "\n");
-	printf("\n");
-	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
-	printf("\n");
+	_printf("%S", NULL);
+
+	printf("\n------------------------------Test 1----------------------------\n");
+	_printf("%S", "\n", 14);
+
+	printf("\n------------------------------Test 2----------------------------\n");
+	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07", 14);
+
+	printf("\n------------------------------Test 3----------------------------\n");
 	_printf("Could you print some non-printable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
 
+	printf("\n------------------------------Test 4----------------------------\n");
+	_printf("", "");
+
+	printf("\n------------------------------Test 5----------------------------\n");
+	_printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
+
 	printf("\n================== TASK 6 ===========================\n\n");
-/* 
-	_printf("%p\n", (void)0x7fff5100b608);
+
+	_printf("%p\n", (void *)0x7fff5100b608);
 	_printf("%p", NULL);
-	_printf("\nCan you print an address?\n%p\nNice!\n", (void)0x7fff5100b6f8);
-	_printf("\nCan you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void)0x7fff5100b6f8, (void)0x7faf51f0f608, (void)0x6ff42510b6f8, (void)0x7fff510236f8);
+	_printf("\nCan you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8);
+	_printf("\nCan you print several addresses?\n%p,%p,%p,%p\nNice!\n", (void *)0x7fff5100b6f8, (void *)0x7faf51f0f608, (void *)0x6ff42510b6f8, (void *)0x7fff510236f8);
 	_printf("");
-	_printf("\nCan you print an address?\n%p\nNice!\n", (void)-1);
-	_printf("%pppp\n", (void)0x7fff5100b6f8); */
+	_printf("\nCan you print an address?\n%p\nNice!\n", (void *)-1);
+	_printf("%pppp\n", (void *)0x7fff5100b6f8);
+
+	printf("\n================== TASK 7 ===========================\n\n");
+
+	printf("------------------------------Test 1----------------------------\n");
+	_printf("%+d", 1024);
+	printf("\n");
+	printf("%+d", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 2----------------------------\n");
+	_printf("%+d", -1024);
+	printf("\n");
+	printf("%+d", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 3--------------------------------\n");
+	_printf("%+d", 0);
+	printf("\n");
+	printf("%+d", 0);
+	printf("\n");
+
+	printf("------------------------------Test 4---------------------------\n");
+	_printf("%+d", INT_MAX);
+	printf("\n");
+	printf("%+d", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 5----------------------------\n");
+	_printf("%+d", INT_MIN);
+	printf("\n");
+	printf("%+d", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 6-----------------------------\n");
+	_printf("%+d", l);
+	printf("\n");
+	printf("%+d", l);
+	printf("\n");
+
+	printf("------------------------------Test 7-----------------------------\n");
+	_printf("%+d", l);
+	printf("\n");
+	printf("%+d", l);
+	printf("\n");
+
+	printf("------------------------------Test 8-----------------------------\n");
+	_printf("There is %+d bytes in %+d KB\n", 1024, 1);
+	printf("\n");
+	printf("There is %+d bytes in %+d KB\n", 1024, 1);
+	printf("\n");
+
+	printf("------------------------------Test 9-----------------------------\n");
+	_printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+	printf("\n");
+	printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+	printf("\n");
+
+	printf("------------------------------Test 10----------------------------\n");
+	_printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+	printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+
+	printf("------------------------------Test 11----------------------------\n");
+	_printf("%+i", 1024);
+	printf("\n");
+	printf("%+i", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 12----------------------------\n");
+	_printf("%+i", -1024);
+	printf("\n");
+	printf("%+i", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 13----------------------------\n");
+	_printf("%+i", 0);
+	printf("\n");
+	printf("%+i", 0);
+	printf("\n");
+
+	printf("------------------------------Test 14----------------------------\n");
+	_printf("%+i", INT_MAX);
+	printf("\n");
+	printf("%+i", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 15----------------------------\n");
+	_printf("%+i", INT_MIN);
+	printf("\n");
+	printf("%+i", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 16---------------------------\n");
+	_printf("%+i", l);
+	printf("\n");
+	printf("%+i", l);
+	printf("\n");
+
+	printf("------------------------------Test 17---------------------------\n");
+	_printf("%+i", l);
+	printf("\n");
+	printf("%+i", l);
+	printf("\n");
+
+	printf("------------------------------Test 18---------------------------\n");
+	_printf("There is %+i bytes in %+i KB\n", 1024, 1);
+	printf("\n");
+	printf("There is %+i bytes in %+i KB\n", 1024, 1);
+	printf("\n");
+
+	printf("------------------------------Test 19---------------------------\n");
+	_printf("%+i - %+i = %+i\n", 1024, 2048, -1024);
+	printf("\n");
+	printf("%+i - %+i = %+i\n", 1024, 2048, -1024);
+	printf("\n");
+
+	printf("------------------------------Test 20---------------------------\n");
+	_printf("%+i + %+i = %+i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+	printf("%+i + %+i = %+i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+
+	printf("------------------------------Test 21-------------------------\n");
+	_printf("% d", 1024);
+	printf("\n");
+	printf("% d", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 22-------------------------\n");
+	_printf("% d", -1024);
+	printf("\n");
+	printf("% d", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 23-------------------------\n");
+	_printf("% d", 0);
+	printf("\n");
+	printf("% d", 0);
+	printf("\n");
+
+	printf("------------------------------Test 24-------------------------\n");
+	_printf("% d", INT_MAX);
+	printf("\n");
+	printf("% d", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 25-------------------------\n");
+	_printf("% d", INT_MIN);
+	printf("\n");
+	printf("% d", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 26-------------------------\n");
+	_printf("% d", l);
+	printf("\n");
+	printf("% d", l);
+	printf("\n");
+
+	printf("------------------------------Test 27-------------------------\n");
+	_printf("% d", l);
+	printf("\n");
+	printf("% d", l);
+	printf("\n");
+
+	printf("------------------------------Test 28-------------------------\n");
+	_printf("There is % d bytes in % d KB\n", 1024, 1);
+	printf("\n");
+	printf("There is % d bytes in % d KB\n", 1024, 1);
+	printf("\n");
+
+	printf("------------------------------Test 29-------------------------\n");
+	_printf("% d - % d = % d\n", 1024, 2048, -1024);
+	printf("\n");
+	printf("% d - % d = % d\n", 1024, 2048, -1024);
+	printf("\n");
+
+	printf("------------------------------Test 30-------------------------\n");
+	_printf("% d + % d = % d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+	printf("% d + % d = % d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+
+	printf("------------------------------Test 31------------------------\n");
+	_printf("% i", 1024);
+	printf("\n");
+	printf("% i", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 32-------------------\n");
+	_printf("% i", -1024);
+	printf("\n");
+	printf("% i", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 33-------------------\n");
+	_printf("% i", 0);
+	printf("\n");
+	printf("% i", 0);
+	printf("\n");
+
+	printf("------------------------------Test 34-------------------\n");
+	_printf("% i", INT_MAX);
+	printf("\n");
+	printf("% i", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 35-------------------\n");
+	_printf("% i", INT_MIN);
+	printf("\n");
+	printf("% i", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 36-------------------\n");
+	_printf("% i", l);
+	printf("\n");
+	printf("% i", l);
+	printf("\n");
+
+	printf("\n-------------------test case 1--------------------\n");
+	_printf("%#o", 1024);
+
+	printf("\n-------------------test case 2--------------------\n");
+	_printf("%#o", 0);
+
+	printf("\n-------------------test case 3--------------------\n");
+	_printf("%#o", UINT_MAX);
+
+	printf("\n-------------------test case 4--------------------\n");
+	_printf("%#x", 1024);
+
+	printf("\n-------------------test case 5--------------------\n");
+	_printf("%#x", 0);
+
+	printf("\n-------------------test case 6--------------------\n");
+	_printf("%#x", UINT_MAX);
+
+	printf("\n-------------------test case 7--------------------\n");
+	_printf("%#X", 1024);
+
+	printf("\n-------------------test case 8--------------------\n");
+	_printf("%#X", 0);
+
+	printf("\n-------------------test case 9--------------------\n");
+	_printf("%#X", UINT_MAX);
+
+	printf("\n-------------------test case 10--------------------\n");
+	_printf("% ");
+	_printf("% % % % ");
 
 	return (0);
 }
