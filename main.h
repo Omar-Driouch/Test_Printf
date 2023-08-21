@@ -26,6 +26,7 @@ int _putchar(char c);
 int print_number(long num);
 int printf_x_or_X(unsigned int num, int IsLower);
 
+
 /* Specifiers functions */
 int printf_s(va_list);
 int printf_i(va_list);
@@ -37,5 +38,6 @@ int printf_x(va_list);
 int printf_X(va_list);
 int printf_S(va_list);
 int printf_p(va_list);
+int printf_r(va_list);
 
 #endif /* MAIN_H */

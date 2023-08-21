@@ -84,3 +84,46 @@ int printf_S(va_list S)
 	}
 	return (length);
 }
+
+/**
+ * printf_r - prints the string in a reversed form
+ */
+
+int printf_r(va_list r)
+{
+	char *str = va_arg(r, char *);
+	char *rev;
+	int i = 0, j = 0, len = 0, isnewLine = 0;
+
+	while (str[i] != '\0')
+		i++;
+
+	rev = (char *)malloc(i + 1);
+	if (rev == NULL)
+		return (0);
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		if (str[j] != '\n')
+			rev[i - 1 - j] = str[j];
+	}
+
+	if (isnewLine)
+	{
+	}
+
+	rev[i] = '\0';
+
+	len = _printf("%s", rev);
+
+	free(rev);
+	return (len);
+}
+
+/**
+ * printf_R - pritfs the string in a ROT13 form
+
+
+int printf_R(va_list R)
+{
+}*/
