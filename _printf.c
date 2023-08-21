@@ -8,7 +8,6 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	char spec[] = {'i', 'd', 'c', 's', 'b', 'o', 'u', 'x', 'X', 'S', 'p', '\0'};
-	/*char ignore[] = {'#',' ', '+'};*/
 	int total_written = 0, i = 0, j = 0;
 
 	if (!format || (format[0] == '%' && !format[1]))
@@ -38,7 +37,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-		print_me:
+print_me:
 			total_written += _putchar(format[i]);
 			i++;
 		}

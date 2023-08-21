@@ -1,1 +1,0 @@
-this is the test of project printf working in cloaborate iwth Alamy
