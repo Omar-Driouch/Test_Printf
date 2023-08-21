@@ -17,7 +17,6 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		/* printf("\nformat[%d] = %c\n", i, format[i], format[i]); */
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			for (j = 0; spec[j] != '\0'; j++)

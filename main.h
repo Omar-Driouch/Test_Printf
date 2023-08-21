@@ -15,13 +15,18 @@
  */
 typedef struct formatter
 {
-    char spec;
-    int (*func)(va_list);
+	char spec;
+	int (*func)(va_list);
 } formatter_t;
 
 /* Prototypes */
 int _printf(const char *format, ...);
+int (*get_right_func(const char *s))(va_list);
 int _putchar(char c);
+int print_number(long num);
+int printf_x_or_X(unsigned int num, int IsLower);
+
+/* Specifiers functions */
 int printf_s(va_list);
 int printf_i(va_list);
 int printf_c(va_list);
@@ -32,9 +37,5 @@ int printf_x(va_list);
 int printf_X(va_list);
 int printf_S(va_list);
 int printf_p(va_list);
-int printf_x_or_X(unsigned int num, int IsLower);
-int print_number(long num);
-
-int (*get_right_func(const char *s))(va_list);
 
 #endif /* MAIN_H */

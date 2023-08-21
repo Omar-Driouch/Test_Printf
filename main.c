@@ -413,19 +413,23 @@ int main(void)
 	printf("\n================== TASK 5 ===========================\n\n");
 
 	_printf("%S", "No special character.");
-
 	printf("\n");
+	_printf("%S", NULL);
 
-	_printf("%S", "\n");
-	printf("%S", "\n");
+	printf("\n------------------------------Test 1----------------------------\n");
+	_printf("%S", "\n", 14);
 
-	printf("\n");
+	printf("\n------------------------------Test 2----------------------------\n");
+	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07", 14);
 
-	_printf("%S", "\x01\x02\x03\x04\x05\x06\x07");
-
-	printf("\n");
-
+	printf("\n------------------------------Test 3----------------------------\n");
 	_printf("Could you print some non-printable characters?\n%S\nThanks!\n", "Sure:\x1F\x7F\n");
+
+	printf("\n------------------------------Test 4----------------------------\n");
+	_printf("", "");
+
+	printf("\n------------------------------Test 5----------------------------\n");
+	_printf("- What did you say?\n- %S\n- That's what I thought.\n", "");
 
 	printf("\n================== TASK 6 ===========================\n\n");
 
