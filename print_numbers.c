@@ -10,6 +10,7 @@
  *
  * Return:Result of the print_rev function, indicating printed character count
  */
+
 int printf_b(va_list b)
 {
 	unsigned int dec = va_arg(b, int);
@@ -51,7 +52,6 @@ int printf_o(va_list o)
 		oct += (dec % 8) * i;
 		dec /= 8;
 	}
-
 
 	return (print_number(oct));
 }
@@ -100,11 +100,12 @@ int print_number(long num)
 }
 
 /**
- * printf_u - Prints a number as unsigned
- * @o: Number to print
+ * printf_u - convert an input argument into unsigned int
+ * @u: the input args
  *
- * Return: Length of the printed number
+ * Return: the count  of printed numbers
  */
+
 int printf_u(va_list u)
 {
 	long num = va_arg(u, int);
@@ -112,7 +113,7 @@ int printf_u(va_list u)
 
 	if (num < 0)
 		return (print_number(UNSIGNED_MAX + num));
-	
+
 	return (print_number(num));
 }
 
@@ -185,9 +186,10 @@ int printf_X(va_list X)
 int printf_p(va_list p)
 {
 	void *addr = va_arg(p, void *);
+	unsigned long int addr_value;
 	char *null_addr = "(nil)";
-	int i, hex_num_digits, start_printing_digits = 0, len = 0;
-	unsigned long addr_value;
+	int i = 0, j, len = 0;
+	int hex_digits[64];
 
 	if (addr == NULL)
 	{
@@ -195,31 +197,29 @@ int printf_p(va_list p)
 			len += _putchar(*(null_addr++));
 		return (len);
 	}
-	
-	addr_value = (unsigned long)addr;
+
+	addr_value = (unsigned long int)addr;
+
+	if (addr_value == 0)
+		return (_putchar('0'));
 
 	len += _putchar('0');
 	len += _putchar('x');
 
-	if (addr == 0)
-		return (_putchar('0') + len);
-
-	hex_num_digits = (sizeof(void *) * 2);
-
-	i = (hex_num_digits - 1) * 4;
-	while (i >= 0)
+	while (addr_value > 0)
 	{
-		int hex_digit = (addr_value >> i) & 0xF;
-
-		if (hex_digit > 0 || start_printing_digits)
-		{
-			start_printing_digits = 1;
-			if (hex_digit < 10)
-				len += putchar(hex_digit + '0');
-			else
-				len += putchar(hex_digit - 10 + 'a');
-		}
-		i -= 4;
+		hex_digits[i] = addr_value % 16;
+		addr_value /= 16;
+		i++;
 	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		if (hex_digits[j] < 10)
+			len += _putchar(hex_digits[j] + '0');
+		else
+			len += _putchar(hex_digits[j] - 10 + 'a');
+	}
+
 	return (len);
 }

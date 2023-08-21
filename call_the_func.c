@@ -9,15 +9,16 @@
 int (*get_right_func(const char *s))(va_list)
 {
 	formatter_t Spe_func[] = {
-		{'c', printf_c},
 		{'s', printf_s},
 		{'i', printf_i},
 		{'d', printf_i},
+		{'c', printf_c},
+		{'b', printf_b},
 		{'o', printf_o},
 		{'u', printf_u},
-		{'b', printf_b},
 		{'x', printf_x},
 		{'X', printf_X},
+		{'S', printf_S},
 		{'p', printf_p},
 		{0, NULL}};
 	int i = 0;
