@@ -45,7 +45,7 @@ int main(void)
 	_printf("Unsigned octal:[%o]\n", -10);
 	printf("Unsigned octal:[%o]\n", -10);
 
-	_printf("Unsigned binary:[%b]\n", 15);
+	_printf("Unsigned binary:[%b]\n", -15);
 	printf("Unsigned binary:[%b]\n", -15);
 
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
@@ -453,6 +453,293 @@ int main(void)
 
 	_printf("%pppp\n", (void *)0x7fff5100b6f8);
 	printf("%pppp\n", (void *)0x7fff5100b6f8);
+
+
+
+	printf("\n================== TASK Reversed string ===========================\n\n");
+
+	_printf("Can you print me in reverse %r\n", "Omar");
+
+	_printf("%r", "\nThis sentence is retrieved from va_args!");
+
+	_printf("Complete the sentence: You %r nothing, Jon Snow.\n", "know");
+
+	_printf("Complete the sentence: You %r nothing, Jon Snow.\n", "");
+
+
+
+	printf("\n\n================== TASK ROT-13 ===========================\n\n");
+
+	_printf("%R", "Encode me in Rot13!\n");
+
+	_printf("%R", "Rapbqr zr va Ebg13!\n");
+
+
+
+	printf("\n\n================== TASK 7 ===========================\n\n");
+
+	printf("\n================== TASK 7 ===========================\n\n");
+
+	printf("------------------------------Test 1----------------------------\n");
+	_printf("%+d", 1024);
+	printf("\n");
+	printf("%+d", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 2----------------------------\n");
+	_printf("%+d", -1024);
+	printf("\n");
+	printf("%+d", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 3--------------------------------\n");
+	_printf("%+d", 0);
+	printf("\n");
+	printf("%+d", 0);
+	printf("\n");
+
+	printf("------------------------------Test 4---------------------------\n");
+	_printf("%+d", INT_MAX);
+	printf("\n");
+	printf("%+d", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 5----------------------------\n");
+	_printf("%+d", INT_MIN);
+	printf("\n");
+	printf("%+d", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 6-----------------------------\n");
+	_printf("%+d", l);
+	printf("\n");
+	printf("%+d", l);
+	printf("\n");
+
+	printf("------------------------------Test 7-----------------------------\n");
+	_printf("%+d", l);
+	printf("\n");
+	printf("%+d", l);
+	printf("\n");
+
+	printf("------------------------------Test 8-----------------------------\n");
+	_printf("There is %+d bytes in %+d KB\n", 1024, 1);
+	printf("\n");
+	printf("There is %+d bytes in %+d KB\n", 1024, 1);
+	printf("\n");
+
+	printf("------------------------------Test 9-----------------------------\n");
+	_printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+	printf("\n");
+	printf("%+d - %+d = %+d\n", 1024, 2048, -1024);
+	printf("\n");
+
+	printf("------------------------------Test 10----------------------------\n");
+	_printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+	printf("%+d + %+d = %+d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+
+	printf("------------------------------Test 11----------------------------\n");
+	_printf("%+i", 1024);
+	printf("\n");
+	printf("%+i", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 12----------------------------\n");
+	_printf("%+i", -1024);
+	printf("\n");
+	printf("%+i", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 13----------------------------\n");
+	_printf("%+i", 0);
+	printf("\n");
+	printf("%+i", 0);
+	printf("\n");
+
+	printf("------------------------------Test 14----------------------------\n");
+	_printf("%+i", INT_MAX);
+	printf("\n");
+	printf("%+i", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 15----------------------------\n");
+	_printf("%+i", INT_MIN);
+	printf("\n");
+	printf("%+i", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 16---------------------------\n");
+	_printf("%+i", l);
+	printf("\n");
+	printf("%+i", l);
+	printf("\n");
+
+	printf("------------------------------Test 17---------------------------\n");
+	_printf("%+i", l);
+	printf("\n");
+	printf("%+i", l);
+	printf("\n");
+
+	printf("------------------------------Test 18---------------------------\n");
+	_printf("There is %+i bytes in %+i KB\n", 1024, 1);
+	printf("\n");
+	printf("There is %+i bytes in %+i KB\n", 1024, 1);
+	printf("\n");
+
+	printf("------------------------------Test 19---------------------------\n");
+	_printf("%+i - %+i = %+i\n", 1024, 2048, -1024);
+	printf("\n");
+	printf("%+i - %+i = %+i\n", 1024, 2048, -1024);
+	printf("\n");
+
+	printf("------------------------------Test 20---------------------------\n");
+	_printf("%+i + %+i = %+i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+	printf("%+i + %+i = %+i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+
+	printf("------------------------------Test 21-------------------------\n");
+	_printf("% d", 1024);
+	printf("\n");
+	printf("% d", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 22-------------------------\n");
+	_printf("% d", -1024);
+	printf("\n");
+	printf("% d", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 23-------------------------\n");
+	_printf("% d", 0);
+	printf("\n");
+	printf("% d", 0);
+	printf("\n");
+
+	printf("------------------------------Test 24-------------------------\n");
+	_printf("% d", INT_MAX);
+	printf("\n");
+	printf("% d", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 25-------------------------\n");
+	_printf("% d", INT_MIN);
+	printf("\n");
+	printf("% d", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 26-------------------------\n");
+	_printf("% d", l);
+	printf("\n");
+	printf("% d", l);
+	printf("\n");
+
+	printf("------------------------------Test 27-------------------------\n");
+	_printf("% d", l);
+	printf("\n");
+	printf("% d", l);
+	printf("\n");
+
+	printf("------------------------------Test 28-------------------------\n");
+	_printf("There is % d bytes in % d KB\n", 1024, 1);
+	printf("\n");
+	printf("There is % d bytes in % d KB\n", 1024, 1);
+	printf("\n");
+
+	printf("------------------------------Test 29-------------------------\n");
+	_printf("% d - % d = % d\n", 1024, 2048, -1024);
+	printf("\n");
+	printf("% d - % d = % d\n", 1024, 2048, -1024);
+	printf("\n");
+
+	printf("------------------------------Test 30-------------------------\n");
+	_printf("% d + % d = % d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+	printf("% d + % d = % d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("\n");
+
+	printf("------------------------------Test 31------------------------\n");
+	_printf("% i", 1024);
+	printf("\n");
+	printf("% i", 1024);
+	printf("\n");
+
+	printf("------------------------------Test 32-------------------\n");
+	_printf("% i", -1024);
+	printf("\n");
+	printf("% i", -1024);
+	printf("\n");
+
+	printf("------------------------------Test 33-------------------\n");
+	_printf("% i", 0);
+	printf("\n");
+	printf("% i", 0);
+	printf("\n");
+
+	printf("------------------------------Test 34-------------------\n");
+	_printf("% i", INT_MAX);
+	printf("\n");
+	printf("% i", INT_MAX);
+	printf("\n");
+
+	printf("------------------------------Test 35-------------------\n");
+	_printf("% i", INT_MIN);
+	printf("\n");
+	printf("% i", INT_MIN);
+	printf("\n");
+
+	printf("------------------------------Test 36-------------------\n");
+	_printf("% i", l);
+	printf("\n");
+	printf("% i", l);
+	printf("\n");
+
+	printf("\n-------------------test case 1--------------------\n");
+	_printf("%#o", 1024);
+
+	printf("\n-------------------test case 2--------------------\n");
+	_printf("%#o", 0);
+
+	printf("\n-------------------test case 3--------------------\n");
+	_printf("%#o", UINT_MAX);
+
+	printf("\n-------------------test case 4--------------------\n");
+	_printf("%#x", 1024);
+
+	printf("\n-------------------test case 5--------------------\n");
+	_printf("%#x", 0);
+
+	printf("\n-------------------test case 6--------------------\n");
+	_printf("%#x", UINT_MAX);
+
+	printf("\n-------------------test case 7--------------------\n");
+	_printf("%#X", 1024);
+
+	printf("\n-------------------test case 8--------------------\n");
+	_printf("%#X", 0);
+
+	printf("\n-------------------test case 9--------------------\n");
+	_printf("%#X", UINT_MAX);
+
+	printf("\n-------------------test case 10--------------------\n");
+	_printf("% ");
+	_printf("% % % % ");
+
+	_printf("'%+d'\n", 33);
+	printf("'%+d'\n", 33);
+	_printf("'% d'\n", 33);
+	printf("'% d'\n", 33);
+	_printf("'%#d'\n", 33);
+	printf("'%#d'\n", 33);
+	_printf("'%  ## +++  ###  +#d'\n", 33);
+	printf("'%  ## +++  ###  +#d'\n", 33);
+	_printf("'%  ## +++ y ###  +#d'\n", 33);
+	printf("'%  ## +++ y ###  +#d'\n", 33);
+	_printf("'%  ## +++ ytup ##'\n", 33);
+	printf("'%  ## +++ ytup ##'\n", 33);
+
 
 	return (0);
 }

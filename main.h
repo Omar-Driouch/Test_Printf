@@ -37,5 +37,10 @@ int printf_x(va_list);
 int printf_X(va_list);
 int printf_S(va_list);
 int printf_p(va_list);
+int printf_r(va_list);
+int printf_R(va_list);
+
+/* Flags */
+int handle_flag(const char *format, int *index_ptr);
 
 #endif /* MAIN_H */
