@@ -452,12 +452,11 @@ int main(void)
 
 	_printf("%R", "Encode me in Rot13!\n");
 
-  	_printf("%R", "Rapbqr zr va Ebg13!\n");
- 
+	_printf("%R", "Rapbqr zr va Ebg13!\n");
+
 	_printf("%R", "Guvf fragrapr vf ergevrirq sebz in_netf!\n");
 
 	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
-
 
 	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
 
@@ -725,18 +724,103 @@ int main(void)
 	printf("\n");
 	printf("% i", l);
 	printf("\n");
-	
-    _printf("% ");
+
+	_printf("% ");
 	printf("% ");
-    _printf("% % % % ");
+	_printf("% % % % ");
 	printf("\n");
-	 
 
+	printf("\n-------------------test 9 -------------------\n");
 
-	  printf("\n-------------------test 9 -------------------\n");
+	_printf("\n-----%ld-----", 12);
+	_printf("\n-----%lo-----", 12);
+	_printf("\n-----%lx-----", 12);
+	_printf("\n-----%lX-----", 12);
 
-		_printf("%li", 12);
+	_printf("\n-----%hd-----", 12);
+	_printf("\n-----%ho-----", 12);
+	_printf("\n-----%hx-----", 12);
+	_printf("\n-----%hX-----", 12);
 
-	 
+	printf("=================== task 8 and 9==========");
+
+	_printf("%ld\n", 1024L);
+	printf("%ld\n", 1024L);
+
+	
+	_printf("%ld\n", 1024L);
+	printf("%ld\n", 1024L);
+	printf("\n");
+	_printf("%ld\n", 0L);
+	printf("%ld\n", 0L);
+	printf("\n");
+	_printf("%ld\n", LONG_MAX);
+	printf("%ld\n", LONG_MAX);
+	printf("\n");
+	_printf("%ld\n", LONG_MIN);
+	printf("%ld\n", LONG_MIN);
+	printf("\n");
+	_printf("There is %ld bytes in %ld KB\n", 1024L, 1L);
+	printf("There is %ld bytes in %ld KB\n", 1024L, 1L);
+	printf("\n");
+	_printf("%ld\n - %ld = %ld\n", 1024L, 2048L, -1024L);
+	printf("%ld\n - %ld = %ld\n", 1024L, 2048L, -1024L);
+	printf("\n");
+	_printf("%ld + %ld = %ld\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	printf("%ld + %ld = %ld\n", LONG_MIN, LONG_MAX, (LONG_MIN + LONG_MAX));
+	printf("\n");
+	_printf("%li\n", 1024L);
+	printf("%li\n", 1024L);
+	printf("\n");
+	_printf("%li\n", -1024L);
+	printf("%li\n", -1024L);
+	printf("\n");
+	_printf("%li\n", 0L);
+	printf("%li\n", 0L);
+	printf("\n");
+	_printf("%li\n", LONG_MAX);
+	printf("%li\n", LONG_MAX);
+	printf("\n");
+	_printf("%li\n", LONG_MIN);
+	printf("%li\n", LONG_MIN);
+	printf("\n");
+
+	_printf("%hx\n", 1024);
+	printf("%hx\n", 1024);
+	printf("\n");
+	_printf("%hx\n", 0);
+	printf("%hx\n", 0);
+	printf("\n");
+	_printf("%hx\n", USHRT_MAX);
+	printf("%hx\n", USHRT_MAX);
+	printf("\n");
+	_printf("There is %hx bytes in %hx KB\n", 1024, 1);
+	printf("There is %hx bytes in %hx KB\n", 1024, 1);
+	printf("\n");
+	_printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	 printf("\n");
+	_printf("%hX\n", 1024);
+	printf("%hX\n", 1024);
+	printf("\n");
+	_printf("%hX\n", 0);
+	printf("%hX\n", 0);
+	printf("\n");
+	_printf("%hX\n", USHRT_MAX);
+	printf("%hX\n", USHRT_MAX);
+	printf("\n");
+	_printf("There is %hX bytes in %hX KB\n", 1024, 1);
+	printf("There is %hX bytes in %hX KB\n", 1024, 1);
+	printf("\n");
+	_printf("%hX - %hX = %hX\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	printf("%hX - %hX = %hX\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	printf("\n");
+	_printf("%h\n");
+	printf("%h\n");
+	printf("\n");
+	_printf("%l\n");
+	printf("%l\n");
+	printf("\n");
+
 	return (0);
 }

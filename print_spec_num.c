@@ -112,7 +112,6 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 		*i += 2;
 		return (_putchar('%'));
 	}
-	
 	while (s[n + 1] == '#' || s[n + 1] == ' ' || s[n + 1] == '+')
 	{
 		if (s[n + 2] == 'd' || s[n + 2] == 'i')
@@ -138,64 +137,61 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 		}
 		n++;
 	}
-
-	
-	handleLH(s, i, ar_ls);
 	n = (lent == 0) ? keepI : n;
 	*i = n;
+	handleLH(s, i, ar_ls);
 	return (lent);
 }
+
+
+
+/**
+ * handleLH - Length Modifiers 'l' and 'h' in a Format String
+ *
+ * This function processes the 'l' and 'h' length modifiers in a format string
+ * and calls the appropriate printf-like function to format and print the
+ * corresponding argument based on the modifiers.
+ *
+ * @s:     The format string to parse.
+ * @i:     A pointer to the current position in the format string.
+ * @ar_ls: The va_list of arguments.
+ *
+ * Return: The total number of characters printed by the called functions.
+ */
 
 
 
 int handleLH(const char *s, int *i, va_list ar_ls)
 {
 
-	int keepI = *i, n = *i, num, lent = 0, w = 0;
-	va_list copy;
+	int n = *i, lent = 0;
 
-	va_copy(copy, ar_ls);
-	num = va_arg(copy, int);
-	if (s[n + 1] == ' ' && s[n + 2] == '%')
-	{
-		*i += 2;
-		return (_putchar('%'));
-	}
-	
-	while (s[n + 1] == 'l' || s[n + 1] == 'h' )
+	while (s[n + 1] == 'l' || s[n + 1] == 'h')
 	{
 		if (s[n + 2] == 'd' || s[n + 2] == 'i')
 		{
-			lent += (s[n + 1] == '+' && num >= 0) ? _putchar('+') :
-			 (s[n + 1] == ' ' && num >= 0) ? _putchar(' ') : 0;
+
 			lent += printf_i(ar_ls);
 		}
-		else if (s[n + 2] == 'o')
+		if (s[n + 2] == 'o')
 		{
-			s[n + 2] == 'o' && s[n + 1] != ' ' && s[n + 1] != '+' ? _putchar('0') : w++;
+
 			lent += printf_o(ar_ls);
 		}
-		else if (s[n + 2] == 'x')
+		if (s[n + 2] == 'x')
 		{
-			s[n + 2] == 'x' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0x") : w++;
+
 			lent += printf_x(ar_ls);
 		}
-		else if (s[n + 2] == 'X')
+		if (s[n + 2] == 'X')
 		{
-			s[n + 2] == 'X' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0X") : w++;
+
 			lent += printf_X(ar_ls);
 		}
 		n++;
 	}
 
-	
-	 
-	n = (lent == 0) ? keepI : n;
 	*i = n;
+
 	return (lent);
-
-	 
-
-
 }
-
