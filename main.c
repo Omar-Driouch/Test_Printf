@@ -452,11 +452,16 @@ int main(void)
 
 	_printf("%R", "Encode me in Rot13!\n");
 
-	_printf("%R", "Rapbqr zr va Ebg13!\n");
+  	_printf("%R", "Rapbqr zr va Ebg13!\n");
+ 
+	_printf("%R", "Guvf fragrapr vf ergevrirq sebz in_netf!\n");
+
+	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
+
+
+	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
 
 	printf("\n================== MY TEST CASES ===========================\n\n");
-
- 
 
 	printf("\n--------------------case normal of d --------------- \n");
 	_printf("%d\n", 1024);
@@ -488,7 +493,7 @@ int main(void)
 	printf("\n--------------------case normal of #x --------------- \n");
 	_printf("%#x\n", 1024);
 	printf("%#x\n", 1024);
-	
+
 	printf("\n  \n");
 
 	printf("\n--------------------case normal of #X --------------- \n");
@@ -526,8 +531,6 @@ int main(void)
 
 	printf("\n=================================        ================================= \n");
 
-	 
-
 	printf("\n--------------------case normal of    +++++x --------------- \n");
 	_printf("%+x\n", 1024);
 	printf("%+x\n", 1024);
@@ -543,9 +546,9 @@ int main(void)
 	printf("%+o\n", 1024);
 	printf("\n \n");
 
-	  printf("\n=================================        ================================= \n");
+	printf("\n=================================        ================================= \n");
 
-	printf("\n================== TASK 7 ===========================\n\n"); 
+	printf("\n================== TASK 7 ===========================\n\n");
 
 	_printf("%+d", -1);
 	printf("\n");
@@ -722,6 +725,18 @@ int main(void)
 	printf("\n");
 	printf("% i", l);
 	printf("\n");
+	
+    _printf("% ");
+	printf("% ");
+    _printf("% % % % ");
+	printf("\n");
+	 
 
+
+	  printf("\n-------------------test 9 -------------------\n");
+
+		_printf("%li", 12);
+
+	 
 	return (0);
 }

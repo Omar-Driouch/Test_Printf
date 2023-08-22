@@ -26,6 +26,7 @@ int get_flag(const char *str, int *i, va_list ls);
 int _putchar(char c);
 int print_number(long num);
 int printf_x_or_X(unsigned int num, int IsLower);
+int handleLH(const char *s, int *i, va_list ar_ls);
 
 /* Specifiers functions */
 int printf_s(va_list);

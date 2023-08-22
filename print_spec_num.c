@@ -93,52 +93,109 @@ int printf_p(va_list p)
  *  space
  * or plus sign, making appropriate function calls based on the detected flag
  *
- * @str:  A pointer to the format string being processed.
+ * @s:  A pointer to the format string being processed.
  * @i:    The index in the format string where the flag character is located
  * @ar_ls: a va_list containing the variable arguments for formatting.
  *
  * Return: The updated index in the format string after processing the flag.
  */
 
-int get_flag(const char *str, int *i, va_list ar_ls)
+int get_flag(const char *s, int *i, va_list ar_ls)
 {
-	int keepI = *i, in = *i, num, lent = 0;
+	int keepI = *i, n = *i, num, lent = 0, w = 0;
 	va_list copy;
 
 	va_copy(copy, ar_ls);
 	num = va_arg(copy, int);
-	while (str[in + 1] == '#' || str[in + 1] == ' ' || str[in + 1] == '+')
+	if (s[n + 1] == ' ' && s[n + 2] == '%')
 	{
-		if (str[in + 2] == 'd' || str[in + 2] == 'i')
+		*i += 2;
+		return (_putchar('%'));
+	}
+	
+	while (s[n + 1] == '#' || s[n + 1] == ' ' || s[n + 1] == '+')
+	{
+		if (s[n + 2] == 'd' || s[n + 2] == 'i')
 		{
-			if (str[in + 1] == '+' && num >= 0)
-				lent += _putchar('+');
-			else if (str[in + 1] == ' ' && num >= 0)
-				lent += _putchar(' ');
+			lent += (s[n + 1] == '+' && num >= 0) ? _putchar('+') :
+			 (s[n + 1] == ' ' && num >= 0) ? _putchar(' ') : 0;
 			lent += printf_i(ar_ls);
 		}
-		else if (str[in + 2] == 'o')
+		else if (s[n + 2] == 'o')
 		{
-			if (str[in + 2] == 'o' && str[in + 1] != ' ' && str[in + 1] != '+')
-				_putchar('0');
+			s[n + 2] == 'o' && s[n + 1] != ' ' && s[n + 1] != '+' ? _putchar('0') : w++;
 			lent += printf_o(ar_ls);
 		}
-		else if (str[in + 2] == 'x')
+		else if (s[n + 2] == 'x')
 		{
-			if (str[in + 2] == 'x' && str[in + 1] != ' ' && str[in + 1] != '+')
-				_printf("0x");
+			s[n + 2] == 'x' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0x") : w++;
 			lent += printf_x(ar_ls);
 		}
-		else if (str[in + 2] == 'X')
+		else if (s[n + 2] == 'X')
 		{
-			if (str[in + 2] == 'X' && str[in + 1] != ' ' && str[in + 1] != '+')
-				_printf("0X");
+			s[n + 2] == 'X' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0X") : w++;
 			lent += printf_X(ar_ls);
 		}
-		in++;
+		n++;
 	}
-	if (lent == 0)
-		in = keepI;
-	*i = in;
+
+	
+	handleLH(s, i, ar_ls);
+	n = (lent == 0) ? keepI : n;
+	*i = n;
 	return (lent);
 }
+
+
+
+int handleLH(const char *s, int *i, va_list ar_ls)
+{
+
+	int keepI = *i, n = *i, num, lent = 0, w = 0;
+	va_list copy;
+
+	va_copy(copy, ar_ls);
+	num = va_arg(copy, int);
+	if (s[n + 1] == ' ' && s[n + 2] == '%')
+	{
+		*i += 2;
+		return (_putchar('%'));
+	}
+	
+	while (s[n + 1] == 'l' || s[n + 1] == 'h' )
+	{
+		if (s[n + 2] == 'd' || s[n + 2] == 'i')
+		{
+			lent += (s[n + 1] == '+' && num >= 0) ? _putchar('+') :
+			 (s[n + 1] == ' ' && num >= 0) ? _putchar(' ') : 0;
+			lent += printf_i(ar_ls);
+		}
+		else if (s[n + 2] == 'o')
+		{
+			s[n + 2] == 'o' && s[n + 1] != ' ' && s[n + 1] != '+' ? _putchar('0') : w++;
+			lent += printf_o(ar_ls);
+		}
+		else if (s[n + 2] == 'x')
+		{
+			s[n + 2] == 'x' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0x") : w++;
+			lent += printf_x(ar_ls);
+		}
+		else if (s[n + 2] == 'X')
+		{
+			s[n + 2] == 'X' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0X") : w++;
+			lent += printf_X(ar_ls);
+		}
+		n++;
+	}
+
+	
+	 
+	n = (lent == 0) ? keepI : n;
+	*i = n;
+	return (lent);
+
+	 
+
+
+}
+

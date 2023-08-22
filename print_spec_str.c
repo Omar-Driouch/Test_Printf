@@ -98,7 +98,7 @@ int printf_r(va_list r)
 
 	if (str == NULL)
 	{
-		_putchar('$');
+
 		return (0);
 	}
 
@@ -133,6 +133,9 @@ int printf_R(va_list R)
 	char chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	int i, j;
+
+	if (s == NULL)
+		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
 	{

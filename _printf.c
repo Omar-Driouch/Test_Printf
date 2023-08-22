@@ -8,7 +8,7 @@ int _printf(const char *f, ...)
 {
 	va_list args;
 	char spec[] = {'i', 'd', 'c', 's', 'b', 'o', 'u', 'x', 'X', 'S', 'p',
-				   'r', '#', '+', ' ', 'R', '\0'};
+				   'r', '#', '+', ' ', 'R', 'l', '\0'};
 	int total_written = 0, i = 0, j = 0;
 
 	if (!f || ((f[0] == '%' && !f[1]) || (f[0] == '%' && f[1] == ' ' && !f[2])))
