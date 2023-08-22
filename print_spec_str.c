@@ -86,44 +86,30 @@ int printf_S(va_list S)
 }
 
 /**
- * printf_r - prints the string in a reversed form
- * @r: A va_list containing the argument to be printed
+ * printf_r - Prints a string in reverse
+ * @r: String to print in reverse
  *
- * Return: The total length of printed characters.
+ * Return: Length of the printed string
  */
-
 int printf_r(va_list r)
 {
 	char *str = va_arg(r, char *);
-	char *rev;
-	int i = 0, j = 0, len = 0, isnewLine = 0;
+	int i = 0, str_len = 0, len = 0;
+
+	if (str == NULL)
+	{
+		_putchar('$');
+		return (0);
+	}
 
 	while (str[i] != '\0')
 	{
 		i++;
-		if (str[i] == '\n')
-		{
-			isnewLine = 1;
-		}
+		str_len++;
 	}
 
-	rev = (char *)malloc(i + 2);
-	if (rev == NULL)
-		return (0);
-
-	for (j = i; j >= 0; j--)
-	{
-		if (str[j] != '\n')
-			rev[i - 1 - j] = str[j];
-	}
-
-	rev[i++] = '\0';
-	if (isnewLine == 1)
-		len = _printf("%s\n", rev);
-	else
-		len = _printf("%s", rev);
-
-	free(rev);
+	for (i = str_len - 1; i >= 0; i--)
+		len += _putchar(str[i]);
 
 	return (len);
 }
@@ -161,70 +147,5 @@ int printf_R(va_list R)
 		if (j == 26 * 2)
 			_putchar(s[i]);
 	}
-	return (i);
-}
-
-
-
-
-
-/**
- * get_flag - Extract and process formatting flags from a format string.
- *
- * This function parses a format string for a specific flag
- * character (e.g., '+',
- * ' ' or flag for integers like 'd', 'i', 'o', 'x', 'X') starting from the
- * given index and processes it. It handles the flag character and optional
- *  space
- * or plus sign, making appropriate function calls based on the detected flag
- *
- * @str:  A pointer to the format string being processed.
- * @i:    The index in the format string where the flag character is located
- * @flag:  The flag character to be processed ('#' ,'+', ' ').
- * @ls: a va_list containing the variable arguments for formatting.
- *
- * Return The updated index in the format string after processing the flag.
- */
-
-int get_flag(const char *str, int i, char flag, va_list ls)
-{
-	char ISflag = '\0';
-	int keepI = i;
-	int num;
-	va_list copy;
-	va_copy(copy, ls);
-
-	num = va_arg(copy, int);
-	while (str[i + 1] == flag || str[i + 1] == ' ' || str[i + 1] == '+')
-	{
-		if (str[i + 2] == 'd' || str[i + 2] == 'i')
-		{
-			if (str[i + 1] == '+' && num >= 0)
-				_putchar('+');
-			else if (str[i + 1] == ' ' && num >= 0)
-				_putchar(' ');
-			ISflag = 'd';
-			printf_i(ls);
-		}
-		else if (str[i + 2] == 'o')
-		{
-			ISflag = 'o';
-			printf_o(ls);
-		}
-		else if (str[i + 2] == 'x')
-		{
-			ISflag = 'x';
-			printf_x(ls);
-		}
-		else if (str[i + 2] == 'X')
-		{
-			ISflag = 'X';
-			printf_X(ls);
-		}
-		i++;
-	}
-	if (ISflag == '\0')
-		i = keepI;
-
 	return (i);
 }

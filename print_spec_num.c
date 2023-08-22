@@ -82,3 +82,63 @@ int printf_p(va_list p)
 
 	return (len);
 }
+
+/**
+ * get_flag - Extract and process formatting flags from a format string.
+ *
+ * This function parses a format string for a specific flag
+ * character (e.g., '+',
+ * ' ' or flag for integers like 'd', 'i', 'o', 'x', 'X') starting from the
+ * given index and processes it. It handles the flag character and optional
+ *  space
+ * or plus sign, making appropriate function calls based on the detected flag
+ *
+ * @str:  A pointer to the format string being processed.
+ * @i:    The index in the format string where the flag character is located
+ * @ar_ls: a va_list containing the variable arguments for formatting.
+ *
+ * Return: The updated index in the format string after processing the flag.
+ */
+
+int get_flag(const char *str, int *i, va_list ar_ls)
+{
+	int keepI = *i, in = *i, num, lent = 0;
+	va_list copy;
+
+	va_copy(copy, ar_ls);
+	num = va_arg(copy, int);
+	while (str[in + 1] == '#' || str[in + 1] == ' ' || str[in + 1] == '+')
+	{
+		if (str[in + 2] == 'd' || str[in + 2] == 'i')
+		{
+			if (str[in + 1] == '+' && num >= 0)
+				lent += _putchar('+');
+			else if (str[in + 1] == ' ' && num >= 0)
+				lent += _putchar(' ');
+			lent += printf_i(ar_ls);
+		}
+		else if (str[in + 2] == 'o')
+		{
+			if (str[in + 2] == 'o' && str[in + 1] != ' ' && str[in + 1] != '+')
+				_putchar('0');
+			lent += printf_o(ar_ls);
+		}
+		else if (str[in + 2] == 'x')
+		{
+			if (str[in + 2] == 'x' && str[in + 1] != ' ' && str[in + 1] != '+')
+				_printf("0x");
+			lent += printf_x(ar_ls);
+		}
+		else if (str[in + 2] == 'X')
+		{
+			if (str[in + 2] == 'X' && str[in + 1] != ' ' && str[in + 1] != '+')
+				_printf("0X");
+			lent += printf_X(ar_ls);
+		}
+		in++;
+	}
+	if (lent == 0)
+		in = keepI;
+	*i = in;
+	return (lent);
+}
