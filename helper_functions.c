@@ -74,3 +74,80 @@ int printf_x_or_X(unsigned int num, int is_lower)
 	return (len);
 }
 
+/**
+ * customFunction_flag - Custom function for handling printf specifiers.
+ *
+ * This function takes arguments `num`, `s`, `n`, `le`, and a variable
+ * argument list `ls`. It checks `s` for specific specifiers ('x', 'X', 'o')
+ * and updates `le` accordingly, returning the updated `le`.
+ *
+ * @num: Integer affecting the function's behavior.
+ * @s: Format specifier string.
+ * @n: Index for parsing `s`.
+ * @le: Current length.
+ * @ls: Variable argument list for printf-like functionality.
+ *
+ * Return: Updated length .
+ */
+
+int customFunction_flag(int num, const char *s, int n, int le, va_list ls)
+{
+	if (s[n + 2] == 'x')
+	{
+		(num == 0) ? (le -= 2) : (s[n + 2] == 'x' && s[n + 1] != ' ' &&
+		s[n + 1] != '+') ? _printf("0x") : 0;
+		le = 2 + le + printf_x(ls);
+	}
+	if (s[n + 2] == 'X')
+	{
+		(num == 0) ? (le -= 2) : (s[n + 2] == 'X' && s[n + 1] != ' ' &&
+		s[n + 1] != '+') ? _printf("0X") : 0;
+		le = 2 + le + printf_X(ls);
+	}
+	if (s[n + 2] == 'o')
+	{
+		(num == 0) ? (le -= 1) : (s[n + 2] == 'o' && s[n + 1] != ' ' &&
+		s[n + 1] != '+') ? _putchar('0') : 0;
+		le = 2 + le + printf_o(ls) - 1;
+	}
+	if (s[n + 2] == 'd' || s[n + 2] == 'i')
+	{
+		if (s[n + 1] == '+' && num >= 0)
+			le += _putchar('+');
+		else if (s[n + 1] == ' ' && num >= 0)
+			le += (s[n] == '%') ? _putchar(s[n + 1]) : _putchar(s[n]);
+		le += printf_i(ls);
+	}
+
+	return (le);
+}
+
+/**
+ * print_largeNum - Prints a large unsigned long number
+ * @num: The number to be printed
+ *
+ * This function prints a large unsigned long number to the standard output.
+ * If the number is negative, it is converted to a positive number and a minus
+ * sign is printed before it. The function recursively divides the number by 10
+ * to print each digit individually.
+ *
+ * Return: The number of characters printed.
+ */
+
+int print_largeNum(unsigned long num)
+{
+	unsigned long len = 0;
+
+	if ((long)num < 0)
+	{
+		num = -num;
+		len += _putchar('-');
+	}
+
+	if (num >= 10)
+		len += print_number(num / 10);
+
+	len += _putchar(num % 10 + '0');
+
+	return (len);
+}

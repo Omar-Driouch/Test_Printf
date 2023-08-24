@@ -729,7 +729,7 @@ int main(void)
 	printf("% ");
 	_printf("% % % % ");
 	printf("\n");
-
+	printf("% % % % ");
 	printf("\n-------------------test 9 -------------------\n");
 
 	_printf("\n-----%ld-----", 12);
@@ -747,7 +747,6 @@ int main(void)
 	_printf("%ld\n", 1024L);
 	printf("%ld\n", 1024L);
 
-	
 	_printf("%ld\n", 1024L);
 	printf("%ld\n", 1024L);
 	printf("\n");
@@ -799,7 +798,7 @@ int main(void)
 	printf("\n");
 	_printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
 	printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
-	 printf("\n");
+	printf("\n");
 	_printf("%hX\n", 1024);
 	printf("%hX\n", 1024);
 	printf("\n");
@@ -822,5 +821,579 @@ int main(void)
 	printf("%l\n");
 	printf("\n");
 
+	printf("\n========================all done ====================\n");
+
+	_printf("% +i + %+ i = % +d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("% +i + %+ i = % +d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX)); 
+	printf("\n===========o=========\n");
+	printf(" === %d", _printf("%#o", 10));
+	printf("\n");
+	printf(" === %d", printf("%#o", 10));
+
+	printf("\n===========d=========\n");
+	printf(" === %d", _printf("%#d", 10));
+	printf("\n");
+	printf(" === %d", printf("%#d", 10));
+
+	printf("\n===========x=========\n");
+	printf(" === %d", _printf("%#x", 10));
+	printf("\n");
+	printf(" === %d", printf("%#x", 10));
+
+	printf("\n===========X=========\n");
+	printf(" === %d", _printf("%#X", 10));
+	printf("\n");
+	printf(" === %d", printf("%#X", 10));
+
+	printf("\n======== plu============\n");
+
+	len = _printf("% +i + %+ i = % +d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	len2 = printf("% +i + %+ i = % +d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n======== plu============\n");
+
+	printf("\n===========o=========\n");
+	printf(" === %d", _printf("%#o", 0));
+	printf("\n");
+	printf(" === %d", printf("%#o", 0));
+
+	printf("\n===========d=========\n");
+	printf(" === %d", _printf("%#d", 0));
+	printf("\n");
+	printf(" === %d", printf("%#d", 0));
+
+	printf("\n===========x=========\n");
+	printf(" === %d", _printf("%#x", 0));
+	printf("\n");
+	printf(" === %d", printf("%#x", 0));
+
+	printf("\n===========X=========\n");
+	printf(" === %d", _printf("%#X", 0));
+	printf("\n");
+	printf(" === %d", printf("%#X", 0));
+
+	printf("\n======== plu============\n");
+
+	printf("\n======== Correcttion of task 8	============\n");
+	printf("\n------------------- main.0 -------------------\n");
+
+	len = _printf("%ld", 1024L);
+
+	len2 = printf("%ld", 1024L);
+
+	printf("\n  yes mine =>  %d", len);
+	printf("\n  not mine =>  %d", len2);
+
+	printf("\n");
+
+	len = _printf("%ld", 1024L);
+	len2 = printf("%ld", 1024L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.1 -------------------\n");
+
+	len = _printf("%ld", -1024L);
+	len2 = printf("%ld", -1024L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.2 -------------------\n");
+	len = _printf("%ld", 0L);
+	len2 = printf("%ld", 0L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.5 -------------------\n");
+	len = _printf("There is %ld bytes in %ld KB\n", 1024L, 1L);
+	len2 = printf("There is %ld bytes in %ld KB\n", 1024L, 1L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.8 -------------------\n");
+	len = _printf("%li", 1024L);
+	len2 = printf("%li", 1024L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.9 -------------------\n");
+	len = _printf("%li", -1024L);
+	len2 = printf("%li", -1024L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.10 -------------------\n");
+	len = _printf("%li", 0L);
+	len2 = printf("%li", 0L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.13 -------------------\n");
+	len = _printf("There is %li bytes in %li KB\n", 1024L, 1L);
+	len2 = printf("There is %li bytes in %li KB\n", 1024L, 1L);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.16 -------------------\n");
+	len = _printf("%lu", 1024UL);
+	len2 = printf("%lu", 1024UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.17 -------------------\n");
+	len = _printf("%lu", 0UL);
+	len2 = printf("%lu", 0UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.19 -------------------\n");
+	len = _printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.21 -------------------\n");
+	len = _printf("%lo", 1024UL);
+	len2 = printf("%lo", 1024UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.22 -------------------\n");
+	len = _printf("%lo", 0UL);
+	len2 = printf("%lo", 0UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.24 -------------------\n");
+	len = _printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.26 -------------------\n");
+	len = _printf("%lx", 1024UL);
+	len2 = printf("%lx", 1024UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.27 -------------------\n");
+	len = _printf("%lx", 0UL);
+	len2 = printf("%lx", 0UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.29 -------------------\n");
+
+	len = _printf("There is %lx bytes in %lx KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lx bytes in %lx KB\n", 1024UL, 1UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.31 -------------------\n");
+	len = _printf("%lX", 1024UL);
+	len2 = printf("%lX", 1024UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.32 -------------------\n");
+	len = _printf("%lX", 0UL);
+	len2 = printf("%lX", 0UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.34 -------------------\n");
+	len = _printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.36 -------------------\n");
+
+	len = _printf("%hd", 1024);
+	len2 = printf("%hd", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.37 -------------------\n");
+	len = _printf("%hd", -1024);
+	len2 = printf("%hd", -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.38 -------------------\n");
+	len = _printf("%hd", 0);
+	len2 = printf("%hd", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.39 -------------------\n");
+	len = _printf("%hd", SHRT_MAX);
+	len2 = printf("%hd", SHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.40 -------------------\n");
+	len = _printf("%hd", SHRT_MIN);
+	len2 = printf("%hd", SHRT_MIN);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.41 -------------------\n");
+	len = _printf("There is %hd bytes in %hd KB\n", 1024, 1);
+	len2 = printf("There is %hd bytes in %hd KB\n", 1024, 1);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.42 -------------------\n");
+	len = _printf("%hd - %hd = %hd\n", 1024, 2048, -1024);
+	len2 = printf("%hd - %hd = %hd\n", 1024, 2048, -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.43 -------------------\n");
+	len = _printf("%hd + %hd = %hd\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
+	len2 = printf("%hd + %hd = %hd\n", SHRT_MIN, SHRT_MAX, (SHRT_MIN + SHRT_MAX));
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.44 -------------------\n");
+
+	len = _printf("%hi", 1024);
+	len2 = printf("%hi", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.45 -------------------\n");
+	len = _printf("%hi", -1024);
+	len2 = printf("%hi", -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.47 -------------------\n");
+	len = _printf("%hi", 0);
+	len2 = printf("%hi", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.48 -------------------\n");
+	len = _printf("%hi", SHRT_MAX);
+	len2 = printf("%hi", SHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.49 -------------------\n");
+	len = _printf("%hi", SHRT_MIN);
+	len2 = printf("%hi", SHRT_MIN);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.50 -------------------\n");
+
+	len = _printf("There is %hi bytes in %hi KB\n", 1024, 1);
+	len2 = printf("There is %hi bytes in %hi KB\n", 1024, 1);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.51 -------------------\n");
+
+	len = _printf("%hi - %hi = %hi\n", 1024, 2048, -1024);
+	len2 = printf("%hi - %hi = %hi\n", 1024, 2048, -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.52 -------------------\n");
+
+	len = _printf("%hu", 1024);
+	len2 = printf("%hu", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.53 -------------------\n");
+	len = _printf("%hu", USHRT_MAX);
+	len2 = printf("%hu", USHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main.55 -------------------\n");
+
+	len = _printf("There is %hu bytes in %hu KB\n", 1024, 1);
+	len2 = printf("There is %hu bytes in %hu KB\n", 1024, 1);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.56 -------------------\n");
+
+	len = _printf("%hu - %hu = %hu\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	len2 = printf("%hu - %hu = %hu\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.57 -------------------\n");
+	len = _printf("%ho", 0);
+	len2 = printf("%ho", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.58 -------------------\n");
+	len = _printf("%ho", USHRT_MAX);
+	len2 = printf("%ho", USHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.59 -------------------\n");
+	len = _printf("There is %ho bytes in %ho KB\n", 1024, 1);
+	len2 = printf("There is %ho bytes in %ho KB\n", 1024, 1);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.60 -------------------\n");
+
+	len = _printf("%hx", 0);
+	len2 = printf("%hx", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.61 -------------------\n");
+	len = _printf("%hx", USHRT_MAX);
+	len2 = printf("%hx", USHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.65-------------------\n");
+	len = _printf("There is %hx bytes in %hx KB\n", 1024, 1);
+	len2 = printf("There is %hx bytes in %hx KB\n", 1024, 1);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.66 -------------------\n");
+	len = _printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	len2 = printf("%hx - %hx = %hx\n", USHRT_MAX, 2048, USHRT_MAX - 2048);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.67 -------------------\n");
+	 
+	len = _printf("%ld", LONG_MAX);
+	len2 = printf("%ld", LONG_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main.68 -------------------\n");
+	len = _printf("%lo", ULONG_MAX);
+	len2 = printf("%lo", ULONG_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+ 
 	return (0);
 }

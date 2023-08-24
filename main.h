@@ -27,6 +27,10 @@ int _putchar(char c);
 int print_number(long num);
 int printf_x_or_X(unsigned int num, int IsLower);
 int handleLH(const char *s, int *i, va_list ar_ls);
+int print_largeNum(unsigned long num);
+int print_large_octal(unsigned long num);
+
+int customFunction_flag(int num, const char* s, int n, int le, va_list ls);
 
 /* Specifiers functions */
 int printf_s(va_list);

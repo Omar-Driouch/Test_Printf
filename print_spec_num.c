@@ -102,7 +102,7 @@ int printf_p(va_list p)
 
 int get_flag(const char *s, int *i, va_list ar_ls)
 {
-	int keepI = *i, n = *i, num, lent = 0, w = 0;
+	int keepI = *i, n = *i, num, le = 0;
 	va_list copy;
 
 	va_copy(copy, ar_ls);
@@ -110,40 +110,28 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 	if (s[n + 1] == ' ' && s[n + 2] == '%')
 	{
 		*i += 2;
-		return (_putchar('%'));
+		return (_putchar('%') + _putchar(' '));
 	}
 	while (s[n + 1] == '#' || s[n + 1] == ' ' || s[n + 1] == '+')
 	{
 		if (s[n + 2] == 'd' || s[n + 2] == 'i')
-		{
-			lent += (s[n + 1] == '+' && num >= 0) ? _putchar('+') :
-			 (s[n + 1] == ' ' && num >= 0) ? _putchar(' ') : 0;
-			lent += printf_i(ar_ls);
-		}
+			le = customFunction_flag(num, s, n, le, ar_ls);
 		else if (s[n + 2] == 'o')
-		{
-			s[n + 2] == 'o' && s[n + 1] != ' ' && s[n + 1] != '+' ? _putchar('0') : w++;
-			lent += printf_o(ar_ls);
-		}
+			le = customFunction_flag(num, s, n, le, ar_ls);
 		else if (s[n + 2] == 'x')
-		{
-			s[n + 2] == 'x' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0x") : w++;
-			lent += printf_x(ar_ls);
-		}
+			le = customFunction_flag(num, s, n, le, ar_ls);
 		else if (s[n + 2] == 'X')
-		{
-			s[n + 2] == 'X' && s[n + 1] != ' ' && s[n + 1] != '+' ? _printf("0X") : w++;
-			lent += printf_X(ar_ls);
-		}
+			le = customFunction_flag(num, s, n, le, ar_ls);
+
 		n++;
 	}
-	n = (lent == 0) ? keepI : n;
+	n = (le == 0) ? keepI : n;
 	*i = n;
-	handleLH(s, i, ar_ls);
-	return (lent);
+
+	if (le == 0)
+	le = handleLH(s, i, ar_ls);
+	return (le);
 }
-
-
 
 /**
  * handleLH - Length Modifiers 'l' and 'h' in a Format String
@@ -159,39 +147,30 @@ int get_flag(const char *s, int *i, va_list ar_ls)
  * Return: The total number of characters printed by the called functions.
  */
 
-
-
 int handleLH(const char *s, int *i, va_list ar_ls)
 {
-
 	int n = *i, lent = 0;
 
 	while (s[n + 1] == 'l' || s[n + 1] == 'h')
 	{
 		if (s[n + 2] == 'd' || s[n + 2] == 'i')
 		{
-
-			lent += printf_i(ar_ls);
+			if (s[n + 1] == 'h')
+				lent += print_largeNum(va_arg(ar_ls, int));
+			else
+				lent += print_largeNum(va_arg(ar_ls, unsigned long));
 		}
 		if (s[n + 2] == 'o')
-		{
-
 			lent += printf_o(ar_ls);
-		}
 		if (s[n + 2] == 'x')
-		{
-
 			lent += printf_x(ar_ls);
-		}
 		if (s[n + 2] == 'X')
-		{
-
 			lent += printf_X(ar_ls);
-		}
+		if (s[n + 2] == 'u')
+			lent += printf_u(ar_ls);
 		n++;
 	}
 
 	*i = n;
-
 	return (lent);
 }
