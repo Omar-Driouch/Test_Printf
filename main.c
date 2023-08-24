@@ -1384,9 +1384,81 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	printf("\n------------------- main.68 -------------------\n");
-	len = _printf("%lo", ULONG_MAX);
-	len2 = printf("%lo", ULONG_MAX);
+	printf("\n================================================\n");
+
+
+	 _printf("%s", "Hello Morocco !");
+	
+
+
+
+	printf("\n------------ -------lu ------------\n");
+	_printf("%lu", 1024UL);
+	printf("%lu", 1024UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lu", 0UL);
+	printf("%lu", 0UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lu", ULONG_MAX);
+	printf("%lu", ULONG_MAX);
+	printf("\n------------------- main -------------------\n");
+	_printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+	printf("There is %lu bytes in %lu KB\n", 1024UL, 1UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	printf("%lu - %lu = %lu\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	printf("\n------------------- lo  -------------------\n");
+	printf("\n------------------- main -------------------\n");
+	_printf("%lo", 1024UL);
+	printf("%lo", 1024UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lo", 0UL);
+	printf("%lo", 0UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lo", ULONG_MAX);
+	printf("%lo", ULONG_MAX);
+	printf("\n------------------- main -------------------\n");
+	_printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+	printf("There is %lo bytes in %lo KB\n", 1024UL, 1UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	printf("%lo - %lo = %lo\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	printf("\n-------------------------------------------\n");
+
+	printf("\n-------------------  lx -------------------\n");
+	
+	printf("\n------------------- main -------------------\n");
+	_printf("%lx", 1024UL);
+	printf("%lx", 1024UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lx", 0UL);
+	printf("%lx", 0UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lx", ULONG_MAX);
+	printf("%lx", ULONG_MAX);
+	printf("\n------------------- main -------------------\n");
+	_printf("There is %lx bytes in %lx KB\n", 1024UL, 1UL);
+	printf("There is %lx bytes in %lx KB\n", 1024UL, 1UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	printf("%lx - %lx = %lx\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+
+	printf("\n------------------- LX -------------------\n");
+	_printf("%lX", 1024UL);
+	printf("%lX", 1024UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lX", 0UL);
+	printf("%lX", 0UL);
+	printf("\n------------------- main -------------------\n");
+	_printf("%lX", ULONG_MAX);
+	printf("%lX", ULONG_MAX);
+	printf("\n------------------- main -------------------\n");
+	_printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
+	printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
+	printf("\n------------------- main -------------------\n");
+	
+	len = _printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
+	len2 = printf("There is %lX bytes in %lX KB\n", 1024UL, 1UL);
 	fflush(stdout);
 	if (len != len2)
 	{
@@ -1394,6 +1466,93 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
- 
+	printf("\n------------------- main -------------------\n");
+	len = _printf("%lX - %lX = %lX\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	len2 = printf("%lX - %lX = %lX\n", ULONG_MAX, 2048UL, ULONG_MAX - 2048UL);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- main -------------------\n");
+	_printf("%hd", -1024);
+	printf("%hd", -1024);
+	printf("\n------------------- main -------------------\n");
+		len = _printf("%ho", 1024);
+	len2 = printf("%ho", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main -------------------\n");
+		len = _printf("%hx", USHRT_MAX);
+	len2 = printf("%hx", USHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main -------------------\n");
+		len = _printf("%hX", 1024);
+	len2 = printf("%hX", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main -------------------\n");
+
+	len = _printf("%hu", USHRT_MAX);
+	len2 = printf("%hu", USHRT_MAX);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- main -------------------\n");
+	len = _printf("%lu - %hu = %hu\n", LONG_MIN, 2048, USHRT_MAX - 2048);
+	len2 = printf("%lu - %hu = %hu\n", LONG_MIN, 2048, USHRT_MAX - 2048);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- TASK 9 -------------------\n");
+	_printf("In the middle %6d of a sentence.\n", 1024);
+	printf("In the middle %6d of a sentence.\n", 1024);
+	printf("\n------------------- TASK 10 -------------------\n");
+	_printf("In the middle %.6d of a sentence.\n", 1024);
+	printf("In the middle %.6d of a sentence.\n", 1024);
+	printf("\n------------------- TASK 11 -------------------\n");
+	_printf("In the middle %06d of a sentence.\n", 1024);
+	printf("In the middle %06d of a sentence.\n", 1024);
+	printf("\n------------------- TASK 12 -------------------\n");
+	_printf("In the middle %-6d of a sentence.\n", 1024);
+	printf("In the middle %-6d of a sentence.\n", 1024);
+	 
+	
+
+
+
+
+
+
+
+
+
 	return (0);
 }

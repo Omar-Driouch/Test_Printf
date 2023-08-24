@@ -161,13 +161,16 @@ int handleLH(const char *s, int *i, va_list ar_ls)
 				lent += print_largeNum(va_arg(ar_ls, unsigned long));
 		}
 		if (s[n + 2] == 'o')
-			lent += printf_o(ar_ls);
+			lent += print_base(ar_ls, 8, 0);
 		if (s[n + 2] == 'x')
-			lent += printf_x(ar_ls);
+			lent += print_base(ar_ls, 16, 0);
 		if (s[n + 2] == 'X')
-			lent += printf_X(ar_ls);
-		if (s[n + 2] == 'u')
-			lent += printf_u(ar_ls);
+			lent += print_base(ar_ls, 16, 1);
+		if (s[n + 2] == 'u' && s[n + 1] == 'h')
+		 	lent += printf_u(ar_ls);
+		else if (s[n + 2] == 'u' && s[n + 1] == 'l')
+			lent += printf_Lu(ar_ls);
+			
 		n++;
 	}
 
