@@ -34,6 +34,7 @@ The format string can contain format specifiers that begin with the '%' characte
 + %b: Print an integer in binary.
 + %p: Print a pointer address.
 + %r: Print a reversed string.
++ %R: Print a string encoded in ROT13.
 + %#: Toggle the '0x' prefix for %x and %X.
 + %+: Print a plus sign for positive numbers.
 + % (space): Print a space for positive numbers.
