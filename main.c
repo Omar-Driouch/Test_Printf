@@ -1531,10 +1531,361 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	printf("\n------------------- TASK 9 -------------------\n");
-	_printf("In the middle %6d of a sentence.\n", 1024);
-	printf("In the middle %6d of a sentence.\n", 1024);
-	printf("\n------------------- TASK 10 -------------------\n");
+printf("\n============================ TASK 9 ==============================\n");
+
+
+
+	len = _printf("%6d", 102498402);
+	len2 = printf("%6d", 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 2 -------------------\n");
+
+	len = _printf("\nd%6d", -102);
+	len2 = printf("\nd%6d", -102);
+
+	printf("\n%d\n",len);
+	printf("%d\n",len2);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+ 
+	printf("\n------------------- 3 -------------------\n");
+	len = _printf("In the middle %6d of a sentence.\n", 1024);
+	len2 = printf("In the middle %6d of a sentence.\n", 1024);
+
+	printf("%d\n",len);
+	printf("%d\n",len2);
+
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n------------------- 6 -------------------\n");
+	len = _printf("%6i", 102498402);
+	len2 = printf("%6i", 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 7  -------------------\n");
+	len = _printf("%6i", -102498402);
+	len2 = printf("%6i", -102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 8 -------------------\n");
+	len = _printf("%6i", 0);
+	len2 = printf("%6i", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 9 -------------------\n");
+	len = _printf("%6i", 1024);
+	len2 = printf("%6i", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 10 -------------------\n");
+	len = _printf("%6i", -1024);
+	len2 = printf("%6i", -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 11 -------------------\n");
+	len = _printf("In the middle %6i of a sentence.\n", 1024);
+	len2 = printf("In the middle %6i of a sentence.\n", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 12 -------------------\n");
+
+	len = _printf("%6u", 102498402);
+	len2 = printf("%6u", 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 13 -------------------\n");
+	len = _printf("%6u", 0);
+	len2 = printf("%6u", 0);
+
+	printf("\n%d\n",len);
+	printf("%d\n",len2);
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 14 -------------------\n");
+	len = _printf("%6u", 1024);
+	len2 = printf("%6u", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 15 -------------------\n");
+	len = _printf("In the middle %6u of a sentence.\n", 1024);
+	len2 = printf("In the middle %6u of a sentence.\n", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 16 -------------------\n");
+	len = _printf("%6o", 102498402);
+	printf("\n");
+	 len2 = printf("%6o", 102498402); 
+
+	printf("\n%d\n",len);
+	printf("%d\n",len2);
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 17 -------------------\n");
+	len = _printf("%6o", 0);
+	len2 = printf("%6o", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 18 -------------------\n");
+	len = _printf("%6o", 1024);
+	len2 = printf("%6o", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 19 -------------------\n");
+	len = _printf("In the middle %6o of a sentence.\n", 1024);
+	len2 = printf("In the middle %6o of a sentence.\n", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 20 -------------------\n");
+	len = _printf("%6x", 102498402);
+	len2 = printf("%6x", 102498402);
+
+	printf("\n%d\n",len);
+	printf("%d\n",len2);
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 21 -------------------\n");
+	len = _printf("%6x", 0);
+	len2 = printf("%6x", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 22 -------------------\n");
+	len = _printf("%6x", 102);
+	len2 = printf("%6x", 102);
+
+	printf("\n%d\n",len);
+	printf("%d\n",len2);
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 23 -------------------\n");
+	len = _printf("In the middle'%6x'of a sentence.\n", 1024);
+	len2 = printf("In the middle'%6x'of a sentence.\n", 1024);
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 24 -------------------\n");
+	
+	len = _printf("%6X", 102498402);
+	len2 = printf("%6X", 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 25 -------------------\n");
+	len = _printf("%6X", 0);
+	len2 = printf("%6X", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 26 -------------------\n");
+	len = _printf("%6X", 1024);
+	len2 = printf("%6X", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 27 -------------------\n");
+	len = _printf("In the middle %6X of a sentence.\n", 1024);
+	len2 = printf("In the middle %6X of a sentence.\n", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 28 -------------------\n");
+		len = _printf("%6c", 'A');
+	len2 = printf("%6c", 'A');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 29 -------------------\n");
+	len = _printf("%6c", 0);
+	len2 = printf("%6c", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 30 -------------------\n");
+
+	len = _printf("In the middle %6c of a sentence.\n", 'H');
+	len2 = printf("In the middle %6c of a sentence.\n", 'H');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+	printf("\n------------------- fixed -------------------\n");
+/* 	printf("\n------------------- TASK 10 -------------------\n");
 	_printf("In the middle %.6d of a sentence.\n", 1024);
 	printf("In the middle %.6d of a sentence.\n", 1024);
 	printf("\n------------------- TASK 11 -------------------\n");
@@ -1543,7 +1894,7 @@ int main(void)
 	printf("\n------------------- TASK 12 -------------------\n");
 	_printf("In the middle %-6d of a sentence.\n", 1024);
 	printf("In the middle %-6d of a sentence.\n", 1024);
-	 
+	  */
 	
 
 

@@ -122,7 +122,6 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 			le = customFunction_flag(num, s, n, le, ar_ls);
 		else if (s[n + 2] == 'X')
 			le = customFunction_flag(num, s, n, le, ar_ls);
-
 		n++;
 	}
 	n = (le == 0) ? keepI : n;
@@ -130,6 +129,11 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 
 	if (le == 0)
 	le = handleLH(s, i, ar_ls);
+	if (le == 0)
+	{
+		le = Handle_digits(s, i, ar_ls);
+	}
+	
 	return (le);
 }
 

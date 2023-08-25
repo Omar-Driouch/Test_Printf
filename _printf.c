@@ -8,7 +8,7 @@ int _printf(const char *f, ...)
 {
 	va_list args;
 	char spec[] = {'i', 'd', 'c', 's', 'b', 'o', 'u', 'x', 'X', 'S', 'p',
-				   'r', '#', '+', ' ', 'R', 'l', 'h', '.' ,'\0'};
+				   'r', '#', '+', ' ', 'R', 'l', 'h', '.', '0', '\0'};
 	int total_written = 0, i = 0, j = 0;
 
 	if (!f || ((f[0] == '%' && !f[1]) || (f[0] == '%' && f[1] == ' ' && !f[2])))
@@ -19,11 +19,11 @@ int _printf(const char *f, ...)
 		if (f[i] == '%' && f[i + 1] != '\0')
 		{
 			for (j = 0; spec[j] != '\0'; j++)
-			{
-				if (f[i + 1] == spec[j])
+			{    
+				if (f[i + 1] == spec[j] || _isdigit(f[i + 1]))
 				{
 					if (f[i + 1] == '#' || f[i + 1] == ' ' || f[i + 1] == '+' || f[i + 1] == 'l' ||
-					f[i + 1] == 'h' || f[i + 1] == '.')
+					f[i + 1] == 'h' || f[i + 1] == '.' || _isdigit(f[i + 1]))
 						total_written += get_flag(f, &i, args);
 					else
 						total_written += get_right_func(f + i + 1)(args);

@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+
 /**
  * struct formatter - A struct of specifiers with their
  * corresponding print's function
@@ -32,6 +33,12 @@ int print_largeNum(unsigned long num);
 int customFunction_flag(int num, const char *s, int n, int le, va_list ls);
 int printf_Lu(va_list u);
 int print_base(va_list u, int base, int iUpper);
+/*handle the digitts of %5d */
+int Handle_digits(const char *s, int *i, va_list ar_ls);
+int _lentofInt(long num);
+char *_ConverTobase(unsigned long num , int base, int iUpper);
+int _strlen(char *s);
+int _isdigit(int);
 
 /* Specifiers functions */
 int printf_s(va_list);
