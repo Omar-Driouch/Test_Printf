@@ -64,8 +64,8 @@ int main(void)
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
+	/* _printf("Unknown:[%r]\n");
+	printf("Unknown:[%r]\n"); */
 
 	printf("\n<==== Task 0 ====>\n");
 
@@ -1531,6 +1531,8 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
+
+	
 printf("\n============================ TASK 9 ==============================\n");
 
 
@@ -1546,8 +1548,8 @@ printf("\n============================ TASK 9 ==============================\n")
 	}
 	printf("\n------------------- 2 -------------------\n");
 
-	len = _printf("\nd%6d", -102);
-	len2 = printf("\nd%6d", -102);
+	len = _printf("\n%6d", -102);
+	len2 = printf("\n%6d", -102);
 
 	printf("\n%d\n",len);
 	printf("%d\n",len2);
@@ -1847,6 +1849,371 @@ printf("\n============================ TASK 9 ==============================\n")
 		return (1);
 	}
 
+	printf("\n------------------- 31  -------------------\n");
+	len = _printf("%6s", "Best School !\n");
+	len2 = printf("%6s", "Best School !\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+
+	_printf("%*c", 6, 0);
+	printf("\n------------------- 32 -------------------\n");
+	len = _printf("%6s", "Hi!\n");
+	len2 = printf("%6s", "Hi!\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 33 -------------------\n");
+	len = _printf("In the middle %6s of a sentence.\n", "Hey");
+	len2 = printf("In the middle %6s of a sentence.\n", "Hey");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 34 -------------------\n");
+	len = _printf("%*d", 6, 102498402);
+	len2 = printf("%*d", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 35 -------------------\n");
+	len = _printf("%*d", 6, -102498402);
+	len2 = printf("%*d", 6, -102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 36 -------------------\n");
+	len = _printf("%*d", 6, 0);
+	len2 = printf("%*d", 6, 0);
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 37 -------------------\n");
+	len = _printf("%*d", 6, 1024);
+	len2 = printf("%*d", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 38 -------------------\n");
+	len = _printf("%*d", 6, -1024);
+	len2 = printf("%*d", 6, -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 39 -------------------\n");
+	len = _printf("In the middle %*d of a sentence.\n", 6, 1024);
+	len2 = printf("In the middle %*d of a sentence.\n", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 40 -------------------\n");
+		len = _printf("%*i", 6, 102498402);
+	len2 = printf("%*i", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 41 -------------------\n");
+	len = _printf("%*i", 6, -102498402);
+	len2 = printf("%*i", 6, -102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 42 -------------------\n");
+	len = _printf("%*i", 6, 0);
+	len2 = printf("%*i", 6, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 43 -------------------\n");
+	len = _printf("%*i", 6, 1024);
+	len2 = printf("%*i", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 44 -------------------\n");
+		len = _printf("%*i", 6, -1024);
+	len2 = printf("%*i", 6, -1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 45 -------------------\n");
+	len = _printf("In the middle %*i of a sentence.\n", 6, 1024);
+	len2 = printf("In the middle %*i of a sentence.\n", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 46 -------------------\n");
+	len = _printf("%*u", 6, 102498402);
+	len2 = printf("%*u", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 47 -------------------\n");
+ 	len = _printf("%*u", 6, 0);
+	len2 = printf("%*u", 6, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n-------------------48  -------------------\n");
+		len = _printf("%*u", 6, 1024);
+	len2 = printf("%*u", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 49 -------------------\n");
+	len = _printf("In the middle %*u of a sentence.\n", 6, 1024);
+	len2 = printf("In the middle %*u of a sentence.\n", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 50 -------------------\n");
+	len = _printf("%*o\n", 6, 102498402);
+	len2 = printf("%*o\n", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 51 -------------------\n");
+		len = _printf("%*o", 6, 0);
+	len2 = printf("%*o", 6, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 52 -------------------\n");
+	len = _printf("%*o", 6, 1024);
+	len2 = printf("%*o", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 53 -------------------\n");
+	len = _printf("In the middle %*o of a sentence.\n", 6, 1024);
+	len2 = printf("In the middle %*o of a sentence.\n", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 54 -------------------\n");
+		len = _printf("%*x", 6, 102498402);
+	len2 = printf("%*x", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 55 -------------------\n");
+	len = _printf("%*x", 6, 0);
+	len2 = printf("%*x", 6, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 57 -------------------\n");
+	len = _printf("In the middle %*x of a sentence.\n", 6, 1024);
+	len2 = printf("In the middle %*x of a sentence.\n", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 58 -------------------\n");
+	len = _printf("%*X", 6, 102498402);
+	len2 = printf("%*X", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 59 -------------------\n");
+	len = _printf("%*X", 6, 0);
+	len2 = printf("%*X", 6, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 60 -------------------\n");
+	len = _printf("%*X", 6, 1024);
+	len2 = printf("%*X", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n-------------------  61 -------------------\n");
+		len = _printf("In the middle %*X of a sentence.\n", 6, 1024);
+	len2 = printf("In the middle %*X of a sentence.\n", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 62 -------------------\n");
+	len = _printf("%*c", 6, 'A');
+	len2 = printf("%*c", 6, 'A');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 63 -------------------\n");
+	len = _printf("%*c", 6, 0);
+	len2 = printf("%*c", 6, 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 64 -------------------\n");
+	len = _printf("In the middle %*c of a sentence.\n", 6, 'H');
+	len2 = printf("In the middle %*c of a sentence.\n", 6, 'H');
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 65 -------------------\n");
+	len = _printf("%*s", 6, "Best School !\n");
+	len2 = printf("%*s", 6, "Best School !\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 66 -------------------\n");
+	len = _printf("%*s", 6, "Hi!\n");
+	len2 = printf("%*s", 6, "Hi!\n");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n------------------- 67 -------------------\n");
+		len = _printf("In the middle %*s of a sentence.\n", 6, "Hey");
+	len2 = printf("In the middle %*s of a sentence.\n", 6, "Hey");
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n-------------------  -------------------\n");
+ 
 	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");
@@ -1856,6 +2223,16 @@ printf("\n============================ TASK 9 ==============================\n")
 	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");
 	
@@ -1864,6 +2241,10 @@ printf("\n============================ TASK 9 ==============================\n")
 	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");
+	
+	printf("\n-------------------  -------------------\n");
+
+	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");
 	
@@ -1872,11 +2253,13 @@ printf("\n============================ TASK 9 ==============================\n")
 	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");
-
+	
 	printf("\n-------------------  -------------------\n");
 	
 	printf("\n-------------------  -------------------\n");
 
+	printf("\n-------------------  -------------------\n");
+	
 	printf("\n-------------------  -------------------\n");
 
 	printf("\n-------------------  -------------------\n");

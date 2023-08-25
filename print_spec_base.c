@@ -77,3 +77,14 @@ int printf_X(va_list X)
 {
 	return (printf_x_or_X(va_arg(X, int), 0));
 }
+
+/**
+ * _isdig - checks if parameter is a number between 0 to 9.
+ * @c: input number.
+ * Return: 1 if is a number (0 to 9), 0 in other case.
+ */
+
+int _isdig(int c)
+{
+	return (c >= '0' && c <= '9');
+}

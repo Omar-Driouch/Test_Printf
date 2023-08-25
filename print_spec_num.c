@@ -131,7 +131,7 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 	le = handleLH(s, i, ar_ls);
 	if (le == 0)
 	{
-		le = Handle_digits(s, i, ar_ls);
+		le = Handle_digits_Field(s, i, ar_ls);
 	}
 
 	return (le);

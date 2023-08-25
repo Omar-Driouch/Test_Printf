@@ -102,8 +102,6 @@ int _lentofInt(long num)
 	return (lent);
 }
 
-
-
 /**
  * _ConverTobase - Convert an unsigned long integer to a string in the
  * specified base.
@@ -114,7 +112,6 @@ int _lentofInt(long num)
  *
  * Return: A dynamically allocated string with the converted value.
  */
-
 
 char *_ConverTobase(unsigned long num, int base, int iupper)
 {
