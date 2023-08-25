@@ -1,5 +1,16 @@
 #include "main.h"
 
+
+/**
+ * Handle_digits - format specifier in a formatted string.
+ *
+ * @s:     The formatted string.
+ * @i:     Pointer to the current position in the string.
+ * @ar_ls: Variable argument list.
+ *
+ * Return: Number of characters written.
+ */
+
 int Handle_digits(const char *s, int *i, va_list ar_ls)
 {
 	int keepI = *i, n = *i, num, le = 0, k, end = s[n + 1], isUpp = 0;
@@ -8,7 +19,7 @@ int Handle_digits(const char *s, int *i, va_list ar_ls)
 
 	va_copy(copy, ar_ls);
 	num = va_arg(copy, int);
-	while (_isdigit(s[n + 1]))
+	while (_isdig(s[n + 1]))
 	{
 		if (s[n + 2] == 'd' || s[n + 2] == 'i')
 		{
@@ -45,12 +56,12 @@ int Handle_digits(const char *s, int *i, va_list ar_ls)
 }
 
 /**
- * _isdigit - checks if parameter is a number between 0 to 9.
+ * _isdig - checks if parameter is a number between 0 to 9.
  * @c: input number.
  * Return: 1 if is a number (0 to 9), 0 in other case.
  */
 
-int _isdigit(int c)
+int _isdig(int c)
 {
 	return (c >= '0' && c <= '9');
 }

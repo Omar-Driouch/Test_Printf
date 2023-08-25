@@ -19,11 +19,11 @@ int _printf(const char *f, ...)
 		if (f[i] == '%' && f[i + 1] != '\0')
 		{
 			for (j = 0; spec[j] != '\0'; j++)
-			{    
-				if (f[i + 1] == spec[j] || _isdigit(f[i + 1]))
+			{
+				if (f[i + 1] == spec[j] || _isdig(f[i + 1]))
 				{
-					if (f[i + 1] == '#' || f[i + 1] == ' ' || f[i + 1] == '+' || f[i + 1] == 'l' ||
-					f[i + 1] == 'h' || f[i + 1] == '.' || _isdigit(f[i + 1]))
+					if (f[i + 1] == '#' || f[i + 1] == ' ' || f[i + 1] == '+' ||
+					f[i + 1] == 'l' || f[i + 1] == 'h' || f[i + 1] == '.' || _isdig(f[i + 1]))
 						total_written += get_flag(f, &i, args);
 					else
 						total_written += get_right_func(f + i + 1)(args);

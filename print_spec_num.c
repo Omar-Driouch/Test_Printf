@@ -133,7 +133,7 @@ int get_flag(const char *s, int *i, va_list ar_ls)
 	{
 		le = Handle_digits(s, i, ar_ls);
 	}
-	
+
 	return (le);
 }
 
@@ -171,10 +171,9 @@ int handleLH(const char *s, int *i, va_list ar_ls)
 		if (s[n + 2] == 'X')
 			lent += print_base(ar_ls, 16, 1);
 		if (s[n + 2] == 'u' && s[n + 1] == 'h')
-		 	lent += printf_u(ar_ls);
+			lent += printf_u(ar_ls);
 		else if (s[n + 2] == 'u' && s[n + 1] == 'l')
 			lent += printf_Lu(ar_ls);
-			
 		n++;
 	}
 

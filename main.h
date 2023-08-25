@@ -36,9 +36,9 @@ int print_base(va_list u, int base, int iUpper);
 /*handle the digitts of %5d */
 int Handle_digits(const char *s, int *i, va_list ar_ls);
 int _lentofInt(long num);
-char *_ConverTobase(unsigned long num , int base, int iUpper);
+char *_ConverTobase(unsigned long num, int base, int iUpper);
 int _strlen(char *s);
-int _isdigit(int);
+int _isdig(int);
 
 /* Specifiers functions */
 int printf_s(va_list);
