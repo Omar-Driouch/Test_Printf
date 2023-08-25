@@ -33,7 +33,8 @@ int print_largeNum(unsigned long num);
 int customFunction_flag(int num, const char *s, int n, int le, va_list ls);
 int printf_Lu(va_list u);
 int print_base(va_list u, int base, int iUpper);
-/*handle the digitts of %5d */
+
+/*handle task 9 cases %*d and %6d */
 int Handle_digits_Field(const char *s, int *i, va_list ar_ls);
 int Handle_Char_Field(const char *s, int *i, va_list ar_ls);
 int Handle_Star_Field(const char *s, int *i, va_list ar_ls);
