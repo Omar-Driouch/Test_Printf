@@ -744,6 +744,9 @@ int main(void)
 
 	printf("=================== task 8 and 9==========");
 
+
+ 
+
 	_printf("%ld\n", 1024L);
 	printf("%ld\n", 1024L);
 
@@ -1567,8 +1570,6 @@ printf("\n============================ TASK 9 ==============================\n")
 
 	printf("%d\n",len);
 	printf("%d\n",len2);
-
-
 	fflush(stdout);
 	if (len != len2)
 	{
@@ -1576,7 +1577,18 @@ printf("\n============================ TASK 9 ==============================\n")
 		fflush(stdout);
 		return (1);
 	}
-
+	printf("\n------------------- 3 -------------------\n");
+	_printf("%6d", 1024);
+	printf("\n------------------- 5 -------------------\n");
+	len = _printf("In the middle %6d of a sentence.\n", 1024);
+	len2 = printf("In the middle %6d of a sentence.\n", 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	printf("\n------------------- 6 -------------------\n");
 	len = _printf("%6i", 102498402);
 	len2 = printf("%6i", 102498402);
@@ -2102,6 +2114,16 @@ printf("\n============================ TASK 9 ==============================\n")
 		fflush(stdout);
 		return (1);
 	}
+	printf("\n------------------- 56 -------------------\n");
+	len = _printf("%*x", 6, 1024);
+	len2 = printf("%*x", 6, 1024);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	printf("\n------------------- 57 -------------------\n");
 	len = _printf("In the middle %*x of a sentence.\n", 6, 1024);
 	len2 = printf("In the middle %*x of a sentence.\n", 6, 1024);
@@ -2212,22 +2234,51 @@ printf("\n============================ TASK 9 ==============================\n")
 		fflush(stdout);
 		return (1);
 	}
+
+printf("\n\n====================== TASK 11 =======================\n\n");
+ 
+	printf("\n------------------- 7 -------------------\n");
+	len = _printf("%06i", -102498402);
+	len2 = printf("%06i", -102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 	printf("\n-------------------  -------------------\n");
+		len = _printf("%06i", 102498402);
+	len2 = printf("%06i", 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n-------------------  -------------------\n");
+	_printf("%06x", 0);
+	printf("\n-------------------  -------------------\n");
+	len = _printf("%*x", 6, 102498402);
+	len2 = printf("%*x", 6, 102498402);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	printf("\n-------------------  -------------------\n");
+	len = _printf("%8c\n", 'H');
+	len2 = printf("%8c\n",  'H');
  
 	printf("\n-------------------  -------------------\n");
-
+	len = _printf("%08s\n", "hi");
+	len2 = printf("%08s\n",  "hi");
 	printf("\n-------------------  -------------------\n");
-	
-	printf("\n-------------------  -------------------\n");
-
-	printf("\n-------------------  -------------------\n");
-
-	printf("\n-------------------  -------------------\n");
-	
-	printf("\n-------------------  -------------------\n");
-
-	printf("\n-------------------  -------------------\n");
-
+	len = _printf("%08d\n", 1024);
+	len2 = printf("%08d\n", 1024);
 	printf("\n-------------------  -------------------\n");
 	
 	printf("\n-------------------  -------------------\n");
@@ -2267,17 +2318,8 @@ printf("\n============================ TASK 9 ==============================\n")
 	printf("\n-------------------  -------------------\n");
 	
 	printf("\n-------------------  -------------------\n");
-	printf("\n------------------- fixed -------------------\n");
-/* 	printf("\n------------------- TASK 10 -------------------\n");
-	_printf("In the middle %.6d of a sentence.\n", 1024);
-	printf("In the middle %.6d of a sentence.\n", 1024);
-	printf("\n------------------- TASK 11 -------------------\n");
-	_printf("In the middle %06d of a sentence.\n", 1024);
-	printf("In the middle %06d of a sentence.\n", 1024);
-	printf("\n------------------- TASK 12 -------------------\n");
-	_printf("In the middle %-6d of a sentence.\n", 1024);
-	printf("In the middle %-6d of a sentence.\n", 1024);
-	  */
+	printf("\n---------------- fixed ----------------\n");
+ 
 	
 
 
